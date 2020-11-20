@@ -5,6 +5,6 @@ This is a simple software which can recommend computer accessories according to 
 
 前后端交互：李甲泰
 
-算法设计：姚子路
+算法框架设计：姚子路
 
 划水：余克雄 (doge)
