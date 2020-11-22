@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="188px" height="47px" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask fill="white" id="clip64">
+      <path d="M 0 39  L 0 6  C 0 2.64  2.6400000000001 0  6 0  L 93.8750000000012 0  L 180 0  C 183.36 0  186 2.64  186 6  L 186 39  C 186 42.36  183.36 45  180 45  L 6 45  C 2.6400000000001 45  0 42.36  0 39  Z " fill-rule="evenodd" />
+    </mask>
+    <filter x="1307px" y="77px" width="188px" height="47px" filterUnits="userSpaceOnUse" id="filter65">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner" />
+      <feGaussianBlur stdDeviation="0.5" in="shadowOffsetInner" result="shadowGaussian" />
+      <feComposite in2="shadowGaussian" operator="atop" in="SourceAlpha" result="shadowComposite" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.0666666666666667 0  " in="shadowComposite" />
+    </filter>
+    <g id="widget66">
+      <image preserveAspectRatio="none" style="overflow:visible" width="186" height="45" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAtCAYAAAAZbXEKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIXSURBVHhe7d09axRRFMbxc+6I6ws2sqKFjaCVGBNdzaYQHCJYWAd3P4Lgx7G0s9giusZAhBBlI6TcShMsDFhoYZFs5+bFmbneO66gH2HP/f/gsLO3fubhTHVV/tEd7Ha0ksdepKUqlyfHwNTwXr6HUA+982u9/NrzybHUQV8afL2UVcULVX1QnwIWeNksXNZdzq/8qIPeef9l42/Ix0Ul47KS49JLGV4PYJpkYRU5mamczpycPeHqsPcWr+bafbfbCb3ei6EeHZVyGEIOWHAqhP18IxMn+sRVWu/ksh9CfhBCHp8ZxsLEPMdci/pHblyWrbiq0OSwKOb65y/f1sW3n2P45SDs5oBFcYVx8aMzDmDVcVWJLqzukHKYpwtvCDrsc5NfwDRt0+hIAI2OJOg8jY4E6PwKQYd9epegIwHs6EiC3lnZptFhHo2OJBB0JEFbr1ldYB+NjiQQdCRBb7O6IAE0OpKgt/o0Ouyj0ZEEgo4k6Fz/E6sLzKPRkQSdpdGRAJ19RdBhn94k6EgAOzqSoDM0OhJAoyMJOvOSRod9eoOgIwGsLkiCXl/++I2rFmHcnsucDuNNXoBV8d5R13CyFq+ri4s6w1icRqbrdZXfW90ZjI7K+/EZMGar2dzP64/Rc853G85t1seAHVtnvFv6kOfFf8v5XH/76WFRPlTVdvjb/HMKTJW9sK4MvffrFy+MnsWQi4j8BvmgHocAR7YQAAAAAElFTkSuQmCC" x="0px" y="0px" transform="matrix(1 0 0 1 1308 77 )" />
+      <path d="M 0 39  L 0 6  C 0 2.64  2.6400000000001 0  6 0  L 93.8750000000012 0  L 180 0  C 183.36 0  186 2.64  186 6  L 186 39  C 186 42.36  183.36 45  180 45  L 6 45  C 2.6400000000001 45  0 42.36  0 39  Z " stroke-width="2" stroke="#269abc" fill="none" transform="matrix(1 0 0 1 1308 77 )" mask="url(#clip64)" />
+    </g>
+  </defs>
+  <g transform="matrix(1 0 0 1 -1307 -77 )">
+    <use xlink:href="#widget66" filter="url(#filter65)" />
+    <use xlink:href="#widget66" />
+  </g>
+</svg>
