@@ -1,5 +1,5 @@
 '''
-Description: 
+Description:
 数据库各表项说明：
   tags：应用场景
   form_factor：板型 (E-ATX/ATX/M-ATX/ITX/Mini-ITX)
@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 01:30:04
+LastEditTime: 2020-12-07 07:40:46
 '''
 
 import json
@@ -57,7 +57,7 @@ class JDMotherboardSpider:
   def motherboardSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C681&page="
-    page_num = 1
+    page_num = 5
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i-1) * delta_page+1)
@@ -104,17 +104,24 @@ class JDMotherboardSpider:
             self.driver.execute_script(
                 "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")
             time.sleep(2 * self.delay_time)
+        # 判断链接长度是否超标
+        if len(url_tmp) > 3 * len("https://item.jd.com/100003815425.html"):
+          continue
         # 获得店铺，判断是否为京东自营
         try:
-          shop_name = self.driver.find_element_by_xpath(
-              "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-              str(i+1) + "]/div/div[5]/span/a"
-          ).get_attribute("title")
+          try:
+            shop_name = self.driver.find_element_by_xpath(
+                "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
+                str(i+1) + "]/div/div[5]/span/a"
+            ).get_attribute("title")
+          except:
+            shop_name = self.driver.find_element_by_xpath(
+                "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
+                str(i+1) + "]/div/div/div[2]/div[1]/div[5]/span/a"
+            ).get_attribute("title")
         except:
-          shop_name = self.driver.find_element_by_xpath(
-              "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-              str(i+1) + "]/div/div/div[2]/div[1]/div[5]/span/a"
-          ).get_attribute("title")
+          print(url_tmp)
+          continue
 
         if ("ROG" not in shop_name):
           if ("京东自营" not in shop_name):
@@ -135,12 +142,14 @@ class JDMotherboardSpider:
               "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
               str(i+1) + "]/div/div/div[2]/div[1]/div[2]/strong/i"
           ).text
+
         # time.sleep(self.delay_time)
         try:
           price = float(price)
         except:
           print(price)
-          exit(1)
+          # exit(1)
+          continue
         motherboard_prices.append(price)
         # print(price)
         # exit(0)
@@ -161,8 +170,12 @@ class JDMotherboardSpider:
         self.driver.get(link)
         time.sleep(self.delay_time)
         # 点击商品，获取详细信息
-        name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
-            = self.getGoodsInfo()
+        try:
+          name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
+              = self.getGoodsInfo()
+        except:
+          print(link)
+          continue
 
         # 写入数据库
         self.insertJDData(name, comment_num, praise_rate, shop_name, price, link,
