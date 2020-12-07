@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 07:40:46
+LastEditTime: 2020-12-07 08:41:16
 '''
 
 import json
@@ -56,8 +56,8 @@ class JDMotherboardSpider:
 
   def motherboardSpider(self):
     start_urls = []
-    url_root = "https://list.jd.com/list.html?cat=670%2C677%2C681&page="
-    page_num = 5
+    url_root = "https://list.jd.com/list.html?cat=670%2C677%2C681&psort=3&psort=3&page="
+    page_num = 8
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i-1) * delta_page+1)
