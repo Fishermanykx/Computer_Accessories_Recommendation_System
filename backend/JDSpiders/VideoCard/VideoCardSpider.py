@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 08:53:24
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 09:38:46
+LastEditTime: 2020-12-07 10:04:04
 '''
 import json
 from pprint import pprint
@@ -216,8 +216,8 @@ class JDVideoCardSpider:
       except:
         break
     name = introduction["商品名称"]
-    tags = introduction.get("应用场景", "无")
-    form_factor = introduction.get("板型", '没有写，不讲武德')
+    tags = introduction.get("性能", "无")
+    rgb = introduction.get("灯效", '无')
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -252,7 +252,9 @@ class JDVideoCardSpider:
           p_index += 1
         except:
           break
-    platform = Ptable_params["主体"].get("平台类型", "没有写，不讲武德")
+    card_length = Ptable_params["特性"].get("显卡长度", "没有写，不讲武德")
+    if (card_length != "没有写，不讲武德"):
+      card_length = card_length[:-2]
     Ptable_params = json.dumps(Ptable_params)  # 将 dict 转化为 json 字符串
     # pprint(Ptable_params)
     # exit(0)
@@ -286,8 +288,8 @@ class JDVideoCardSpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error!")
-      comment_num = "100"
+      print("Error! Cannot get comment num")
+      comment_num = "(100+)"
       praise_rate = "90"
 
     return comment_num, praise_rate
