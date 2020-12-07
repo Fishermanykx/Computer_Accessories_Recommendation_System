@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 08:41:16
+LastEditTime: 2020-12-07 10:11:10
 '''
 
 import json
@@ -33,6 +33,7 @@ MYSQL_DB = "computer_accessories"
 
 
 class JDMotherboardSpider:
+
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
@@ -60,7 +61,7 @@ class JDMotherboardSpider:
     page_num = 8
     delta_page = 2
     for i in range(1, page_num + 1):
-      url = url_root + str((i-1) * delta_page+1)
+      url = url_root + str((i - 1) * delta_page + 1)
       start_urls.append(url)
     # print(start_urls)
     for url in start_urls:
@@ -70,7 +71,8 @@ class JDMotherboardSpider:
           "window.scrollTo(0, 3 * document.body.scrollHeight / 4);")
       time.sleep(3 * self.delay_time)
       self.driver.execute_script(
-          "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
+          "window.scrollTo(0, 5 * document.body.scrollHeight / 6);"
+      )  # 下拉页面，从而显示隐藏界面
       time.sleep(3 * self.delay_time)
 
       motherboard_urls = []
@@ -87,13 +89,12 @@ class JDMotherboardSpider:
             try:
               url_tmp = self.driver.find_element_by_xpath(
                   "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-                  str(i+1)+"]/div/div[3]/a"
-              ).get_attribute("href")
+                  str(i + 1) + "]/div/div[3]/a").get_attribute("href")
             except:
               url_tmp = self.driver.find_element_by_xpath(
                   "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-                  str(i+1)+"]/div/div/div[2]/div[1]/div[3]/a"
-              ).get_attribute("href")
+                  str(i + 1) +
+                  "]/div/div/div[2]/div[1]/div[3]/a").get_attribute("href")
 
           except NoSuchElementException:
             temp = 1
@@ -112,13 +113,12 @@ class JDMotherboardSpider:
           try:
             shop_name = self.driver.find_element_by_xpath(
                 "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-                str(i+1) + "]/div/div[5]/span/a"
-            ).get_attribute("title")
+                str(i + 1) + "]/div/div[5]/span/a").get_attribute("title")
           except:
             shop_name = self.driver.find_element_by_xpath(
                 "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-                str(i+1) + "]/div/div/div[2]/div[1]/div[5]/span/a"
-            ).get_attribute("title")
+                str(i + 1) +
+                "]/div/div/div[2]/div[1]/div[5]/span/a").get_attribute("title")
         except:
           print(url_tmp)
           continue
@@ -135,13 +135,11 @@ class JDMotherboardSpider:
         try:
           price = self.driver.find_element_by_xpath(
               "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-              str(i+1) + "]/div/div[2]/strong/i"
-          ).text
+              str(i + 1) + "]/div/div[2]/strong/i").text
         except:
           price = self.driver.find_element_by_xpath(
               "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-              str(i+1) + "]/div/div/div[2]/div[1]/div[2]/strong/i"
-          ).text
+              str(i + 1) + "]/div/div/div[2]/div[1]/div[2]/strong/i").text
 
         # time.sleep(self.delay_time)
         try:
@@ -178,8 +176,9 @@ class JDMotherboardSpider:
           continue
 
         # 写入数据库
-        self.insertJDData(name, comment_num, praise_rate, shop_name, price, link,
-                          brand, tags, form_factor, platform, introduction, Ptable_params)
+        self.insertJDData(name, comment_num, praise_rate, shop_name, price,
+                          link, brand, tags, form_factor, platform,
+                          introduction, Ptable_params)
         # exit(0)
 
   def getGoodsInfo(self):
@@ -199,8 +198,7 @@ class JDMotherboardSpider:
 
     # 获取 brand
     brand = self.driver.find_element_by_xpath(
-        "/html/body/div[*]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li/a"
-    ).text
+        "/html/body/div[*]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li/a").text
     # print(brand)
 
     # 获取 introduction 页面
@@ -209,9 +207,9 @@ class JDMotherboardSpider:
     introd_index = 1
     while True:
       try:
-        key_val_str = self.driver.find_element_by_xpath(
-            front_str + str(introd_index) + back_str
-        ).text
+        key_val_str = self.driver.find_element_by_xpath(front_str +
+                                                        str(introd_index) +
+                                                        back_str).text
 
         # 分割键值对
         key_val = key_val_str.split("：")
@@ -228,11 +226,10 @@ class JDMotherboardSpider:
     # exit(0)
 
     # 点击进入 规格与包装 页面
-    time.sleep(self.delay_time*2)
+    time.sleep(self.delay_time * 2)
     self.driver.find_element_by_xpath(
-        "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[2]"
-    ).click()
-    time.sleep(self.delay_time*2)
+        "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[2]").click()
+    time.sleep(self.delay_time * 2)
     # 获取页面的 html 文本
     Ptable_items = self.driver.find_elements_by_xpath(
         "/html/body/div[*]/div[2]/div[1]/div[2]/div[2]/div[1]/*"
@@ -242,19 +239,18 @@ class JDMotherboardSpider:
     for i in range(len_Ptable_items):
       params = Ptable_items[i]
       key_i = params.find_element_by_xpath(
-          '//*[@id="detail"]/div[2]/div[2]/div[1]/div[' + str(i+1)+']/h3').text
+          '//*[@id="detail"]/div[2]/div[2]/div[1]/div[' + str(i + 1) +
+          ']/h3').text
       p_index = 1
       Ptable_params[key_i] = {}
       while True:
         try:
           sub_key = params.find_element_by_xpath(
-              '//*[@id="detail"]/div[2]/div[2]/div[1]/div['+str(i+1)+']/dl/dl[' +
-              str(p_index) + ']/dt'
-          ).text
+              '//*[@id="detail"]/div[2]/div[2]/div[1]/div[' + str(i + 1) +
+              ']/dl/dl[' + str(p_index) + ']/dt').text
           sub_val = params.find_element_by_xpath(
-              '//*[@id="detail"]/div[2]/div[2]/div[1]/div['+str(i+1)+']/dl/dl[' +
-              str(p_index) + ']/dd'
-          ).text
+              '//*[@id="detail"]/div[2]/div[2]/div[1]/div[' + str(i + 1) +
+              ']/dl/dl[' + str(p_index) + ']/dd').text
           Ptable_params[key_i][sub_key] = sub_val
           p_index += 1
         except:
@@ -274,9 +270,8 @@ class JDMotherboardSpider:
   def getCurrentCommentNumber(self):
     # 转到 商品评价 页面
     self.driver.find_element_by_xpath(
-        "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]"
-    ).click()
-    time.sleep(self.delay_time*2)
+        "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+    time.sleep(self.delay_time * 2)
 
     # self.driver.execute_script(
     #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
@@ -287,23 +282,23 @@ class JDMotherboardSpider:
       self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
       ).click()
-      time.sleep(self.delay_time*2)
+      time.sleep(self.delay_time * 2)
       comment_num = self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em"
-      ).text
-      time.sleep(self.delay_time*2)
+          "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
+      comment_num = comment_num[1:-1]  # 去括号
+      time.sleep(self.delay_time * 2)
       praise_rate = self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div"
-      ).text
+          "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
       print("Error!")
       comment_num = "100"
-      praise_rate = "90"
+      praise_rate = "90%"
 
     return comment_num, praise_rate
 
   def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link,
-                   brand, tags, form_factor, platform, introduction, Ptable_params):
+                   brand, tags, form_factor, platform, introduction,
+                   Ptable_params):
     '''
     description: Insert data into table ** motherboard **
     '''

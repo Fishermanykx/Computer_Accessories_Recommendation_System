@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 08:53:24
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 10:04:04
+LastEditTime: 2020-12-07 10:13:05
 '''
 import json
 from pprint import pprint
@@ -284,13 +284,14 @@ class JDVideoCardSpider:
       time.sleep(self.delay_time * 2)
       comment_num = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
+      comment_num = comment_num[1:-1]
       time.sleep(self.delay_time * 2)
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
       print("Error! Cannot get comment num")
-      comment_num = "(100+)"
-      praise_rate = "90"
+      comment_num = "100+"
+      praise_rate = "90%"
 
     return comment_num, praise_rate
 
