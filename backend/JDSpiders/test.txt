@@ -1,3 +1,11 @@
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div[3]/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[2]/div/div[3]/a
 
-/html/body/div[10]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em
-/html/body/div[10]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[5]/div/div/div[2]/div[1]/div[3]/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[36]/div/div/div[2]/div[1]/div[3]/a
+
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[33]/div/div[5]/span/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[36]/div/div/div[2]/div[1]/div[5]/span/a
+
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div[2]/strong/i
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[48]/div/div/div[2]/div[1]/div[2]/strong/i
