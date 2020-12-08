@@ -1,6 +1,5 @@
 '''
 Description: 
-  tags ：类别
   rotating_speed ：硬盘转速 (单位：rpm)
   total_capacity ：总容量 (单位：G)
   introduction ：商品介绍的 .json
@@ -8,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:24:11
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 10:15:05
+LastEditTime: 2020-12-08 11:23:34
 '''
 import json
 from pprint import pprint
@@ -48,7 +47,7 @@ class JDHDDSpider:
     # for data analysis
     self.valid_urls = []
 
-    query = "truncate table HDD"
+    query = "truncate table hdd"
     cursor.execute(query)
     db.commit()
     print("原表已清空")
@@ -57,8 +56,8 @@ class JDHDDSpider:
 
   def HDDSpider(self):
     start_urls = []
-    url_root = "https://list.jd.com/list.html?cat=670%2C677%2C681&psort=3&psort=3&page="
-    page_num = 5
+    url_root = "https://list.jd.com/list.html?cat=670%2C677%2C683&psort=3&psort=3&page="
+    page_num = 3
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -69,7 +68,7 @@ class JDHDDSpider:
       time.sleep(self.delay_time)
       self.driver.execute_script(
           "window.scrollTo(0, 3 * document.body.scrollHeight / 4);")
-      time.sleep(3 * self.delay_time)
+      time.sleep(2 * self.delay_time)
       self.driver.execute_script(
           "window.scrollTo(0, 5 * document.body.scrollHeight / 6);"
       )  # 下拉页面，从而显示隐藏界面
@@ -123,9 +122,8 @@ class JDHDDSpider:
           print(url_tmp)
           continue
 
-        if ("ROG" not in shop_name):
-          if ("京东自营" not in shop_name):
-            continue
+        if ("京东自营" not in shop_name):
+          continue
         shop_names.append(shop_name)
         # print(url_tmp)
         # print(shop_name)
@@ -169,29 +167,29 @@ class JDHDDSpider:
         time.sleep(self.delay_time)
         # 点击商品，获取详细信息
         try:
-          name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
+          name, comment_num, praise_rate, brand, rotating_speed, total_capacity, introduction, Ptable_params\
               = self.getGoodsInfo()
         except:
+          print("Error in function getGoodsInfo!")
           print(link)
           continue
 
         # 写入数据库
         self.insertJDData(name, comment_num, praise_rate, shop_name, price,
-                          link, brand, tags, form_factor, platform,
+                          link, brand, rotating_speed, total_capacity,
                           introduction, Ptable_params)
         # exit(0)
 
   def getGoodsInfo(self):
     """
     返回值：
-      name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params
+      name, comment_num, praise_rate, brand, rotating_speed, total_capacity, introduction, Ptable_params
       """
     name = ""
     comment_num = ""
     brand = ""
-    tags = ""
-    form_factor = ""
-    platform = ""
+    rotating_speed = ""
+    total_capacity = ""
     praise_rate = ""
     introduction = {}  # dict类型，会转成 json 字符串
     Ptable_params = {}  # dict类型，会转成 json 字符串
@@ -219,14 +217,14 @@ class JDHDDSpider:
       except:
         break
     name = introduction["商品名称"]
-    tags = introduction.get("应用场景", "无")
-    form_factor = introduction.get("板型", '没有写，不讲武德')
+    rotating_speed = introduction.get("转速", '没有写，不讲武德')
+    total_capacity = introduction.get("容量", "没有写，不讲武德")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
 
     # 点击进入 规格与包装 页面
-    time.sleep(self.delay_time * 2)
+    time.sleep(self.delay_time)
     self.driver.find_element_by_xpath(
         "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[2]").click()
     time.sleep(self.delay_time * 2)
@@ -255,17 +253,14 @@ class JDHDDSpider:
           p_index += 1
         except:
           break
-    platform = Ptable_params["主体"].get("平台类型", "没有写，不讲武德")
     Ptable_params = json.dumps(Ptable_params)  # 将 dict 转化为 json 字符串
     # pprint(Ptable_params)
     # exit(0)
 
     # 点击进入评论页面
-    time.sleep(self.delay_time)
     comment_num, praise_rate = self.getCurrentCommentNumber()
-    time.sleep(self.delay_time)
 
-    return name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params
+    return name, comment_num, praise_rate, brand, rotating_speed, total_capacity, introduction, Ptable_params
 
   def getCurrentCommentNumber(self):
     # 转到 商品评价 页面
@@ -282,22 +277,21 @@ class JDHDDSpider:
       self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
       ).click()
-      time.sleep(self.delay_time * 2)
+      time.sleep(self.delay_time * 3)
       comment_num = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
       comment_num = comment_num[1:-1]  # 去括号
-      time.sleep(self.delay_time * 2)
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error!")
+      print("Error! Cannot get comment num")
       comment_num = "100"
       praise_rate = "90%"
 
     return comment_num, praise_rate
 
   def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link,
-                   brand, tags, form_factor, platform, introduction,
+                   brand, rotating_speed, total_capacity, introduction,
                    Ptable_params):
     '''
     description: Insert data into table ** HDD **
@@ -314,10 +308,10 @@ class JDHDDSpider:
     # 使用cursor()方法创建一个游标对象cursor
     cursor = db.cursor()
 
-    sql_insert = "INSERT INTO HDD (name, comment_num, praise_rate, shop_name, price, link,"\
-        "brand, tags, form_factor, platform, introduction, Ptable_params) VALUES (%(name)s, %(comment_num)s,"\
-        "%(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, %(form_factor)s, "\
-        "%(platform)s, %(introduction)s, %(Ptable_params)s)"
+    sql_insert = "INSERT INTO hdd (name, comment_num, praise_rate, shop_name, price, link,"\
+        "brand, rotating_speed, total_capacity, introduction, Ptable_params) VALUES (%(name)s, %(comment_num)s,"\
+        "%(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(rotating_speed)s, "\
+        "%(total_capacity)s, %(introduction)s, %(Ptable_params)s)"
     value = {
         "name": name,
         "comment_num": comment_num,
@@ -326,9 +320,8 @@ class JDHDDSpider:
         "price": price,
         "link": link,
         "brand": brand,
-        "tags": tags,
-        "form_factor": form_factor,
-        "platform": platform,
+        "rotating_speed": rotating_speed,
+        "total_capacity": total_capacity,
         "introduction": introduction,
         "Ptable_params": Ptable_params
     }
@@ -347,4 +340,4 @@ class JDHDDSpider:
 if __name__ == "__main__":
   HDD_spider = JDHDDSpider()
   HDD_spider.HDDSpider()
-  print(HDD_spider.valid_urls)
+  # print(HDD_spider.valid_urls)
