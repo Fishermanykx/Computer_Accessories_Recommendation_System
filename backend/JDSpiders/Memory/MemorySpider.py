@@ -10,7 +10,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:12:01
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 11:57:11
+LastEditTime: 2020-12-08 20:12:17
 '''
 import json
 from pprint import pprint
@@ -37,6 +37,8 @@ class JDMemorySpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
+    prefs = {"profile.managed_default_content_settings.images": 2}
+    self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -146,8 +148,8 @@ class JDMemorySpider:
         try:
           price = float(price)
         except:
+          print("Error in converting price to float type")
           print(price)
-          # exit(1)
           continue
         memory_prices.append(price)
         # print(price)
@@ -171,7 +173,7 @@ class JDMemorySpider:
         # 点击商品，获取详细信息
         try:
           name, comment_num, praise_rate, brand, frequency, total_capacity,\
-          memory_num, appearance, ddr_gen, introduction, Ptable_params \
+              memory_num, appearance, ddr_gen, introduction, Ptable_params \
               = self.getGoodsInfo()
         except:
           print("Error in function getGoodsInfo!")
@@ -225,11 +227,11 @@ class JDMemorySpider:
       except:
         break
     name = introduction["商品名称"]
-    frequency = introduction.get("频率", '没有写，不讲武德')
-    total_capacity = introduction.get("总容量", "没有写，不讲武德")
-    memory_num = introduction.get("内存数量", "没有写，不讲武德")
-    appearance = introduction.get("外观特征", "没有写，不讲武德")
-    ddr_gen = introduction.get("DDR代数", "没有写，不讲武德")
+    frequency = introduction.get("频率", '2400/2666 (原链接没写)')
+    total_capacity = introduction.get("总容量", "8GB (原链接没写)")
+    memory_num = introduction.get("内存数量", "1条单条 (原链接没写)")
+    appearance = introduction.get("外观特征", "没有写")
+    ddr_gen = introduction.get("DDR代数", "没有写")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -295,14 +297,13 @@ class JDMemorySpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error! Cannot get comment num")
+      print("Error! Cannot get comment number")
       comment_num = "100"
       praise_rate = "90%"
 
     return comment_num, praise_rate
 
-  def insertJDData(self, name, comment_num, praise_rate, brand, frequency,
-                   total_capacity, memory_num, appearance, ddr_gen,
+  def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link, brand, frequency, total_capacity, memory_num, appearance, ddr_gen,
                    introduction, Ptable_params):
     '''
     description: Insert data into table ** memory **
@@ -320,7 +321,7 @@ class JDMemorySpider:
     cursor = db.cursor()
 
     sql_insert = "INSERT INTO memory (name, comment_num, praise_rate, shop_name, price, link,"\
-        "brand, frequency, total_capacity, memory_num, appearance, ddr_gen,, introduction, "\
+        "brand, frequency, total_capacity, memory_num, appearance, ddr_gen, introduction, "\
         "Ptable_params) VALUES (%(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s"\
         ", %(link)s, %(brand)s, %(frequency)s, %(total_capacity)s, %(memory_num)s, %(appearance)s, "\
         "%(ddr_gen)s, %(introduction)s, %(Ptable_params)s)"
@@ -347,7 +348,7 @@ class JDMemorySpider:
       print('成功插入', cursor.rowcount, '条数据')
     except:
       print("插入数据失败!")
-      # pprint(value)
+      print(link)
     cursor.close()
     db.close()
 

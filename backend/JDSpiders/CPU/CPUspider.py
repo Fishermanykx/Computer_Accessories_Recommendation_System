@@ -10,7 +10,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 16:13:56
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 09:16:19
+LastEditTime: 2020-12-08 20:11:46
 '''
 import json
 from pprint import pprint
@@ -37,6 +37,8 @@ class JDCPUSpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
+    prefs = {"profile.managed_default_content_settings.images": 2}
+    self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -148,8 +150,8 @@ class JDCPUSpider:
         try:
           price = float(price)
         except:
+          print("Error in converting price to float type")
           print(price)
-          # exit(1)
           continue
         cpu_prices.append(price)
         # print(price)
@@ -194,13 +196,13 @@ class JDCPUSpider:
       """
     name = ""
     comment_num = ""
+    praise_rate = ""
     brand = ""
     tags = ""
     clock_speed = ""
     core_num = ""
     have_core_graphics_card = ""
     have_cpu_fan = ""
-    praise_rate = ""
     introduction = {}  # dict类型，会转成 json 字符串
     Ptable_params = {}  # dict类型，会转成 json 字符串
 
@@ -228,8 +230,8 @@ class JDCPUSpider:
         break
     name = introduction["商品名称"]
     tags = introduction.get("应用场景", "无")
-    core_num = introduction.get("核心数量", '没有写，不讲武德')
-    have_core_graphics_card = introduction.get("是否支持核显", "没有写，不讲武德")
+    core_num = introduction.get("核心数量", '没有写')
+    have_core_graphics_card = introduction.get("是否支持核显", "没有写")
     have_cpu_fan = introduction.get("是否自带风扇", "不带风扇")  # 如果没写，默认不带风扇
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
@@ -265,7 +267,7 @@ class JDCPUSpider:
           p_index += 1
         except:
           break
-    clock_speed = Ptable_params["规格"].get("主频", "没有写，不讲武德")
+    clock_speed = Ptable_params["规格"].get("主频", "没有写")
     Ptable_params = json.dumps(Ptable_params)  # 将 dict 转化为 json 字符串
     # pprint(Ptable_params)
     # exit(0)
@@ -301,7 +303,7 @@ class JDCPUSpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error! Cannot get comments")
+      print("Error! Cannot get comment number")
       comment_num = "100"
       praise_rate = "90%"
 
@@ -353,7 +355,7 @@ class JDCPUSpider:
       print('成功插入', cursor.rowcount, '条数据')
     except:
       print("插入数据失败!")
-      # pprint(value)
+      print(link)
     cursor.close()
     db.close()
 

@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:35:17
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 17:18:53
+LastEditTime: 2020-12-08 20:24:26
 '''
 
 import json
@@ -37,6 +37,8 @@ class JDPowerSupplySpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
+    prefs = {"profile.managed_default_content_settings.images": 2}
+    self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -146,8 +148,8 @@ class JDPowerSupplySpider:
         try:
           price = float(price)
         except:
+          print("Error in converting price to float type")
           print(price)
-          # exit(1)
           continue
         power_supply_prices.append(price)
         # print(price)
@@ -162,12 +164,10 @@ class JDPowerSupplySpider:
       self.valid_urls.append(len(power_supply_urls))
       # 进入每个商品的页面，逐一访问
       for i in range(len(power_supply_urls)):
-        time.sleep(self.delay_time)
         link = power_supply_urls[i]
         price = power_supply_prices[i]
         shop_name = shop_names[i]
         self.driver.get(link)
-        time.sleep(self.delay_time)
         # 点击商品，获取详细信息
         try:
           name, comment_num, praise_rate, brand, tags, power, size, transfer_efficiency, introduction, Ptable_params\
@@ -222,7 +222,7 @@ class JDPowerSupplySpider:
         break
     name = introduction["商品名称"]
     tags = introduction.get("使用场景", "无")
-    power = introduction.get("电源功率", '没有写，不讲武德')
+    power = introduction.get("电源功率", '没有写')
     size = introduction.get("电源尺寸", "无")
     transfer_efficiency = introduction.get("转换效率", "无")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
@@ -293,7 +293,7 @@ class JDPowerSupplySpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error!")
+      print("Error! Cannot get comment number")
       comment_num = "100"
       praise_rate = "90%"
 
@@ -343,7 +343,7 @@ class JDPowerSupplySpider:
       print('成功插入', cursor.rowcount, '条数据')
     except:
       print("插入数据失败!")
-      # pprint(value)
+      print(link)
     cursor.close()
     db.close()
 
@@ -351,4 +351,4 @@ class JDPowerSupplySpider:
 if __name__ == "__main__":
   power_supply_spider = JDPowerSupplySpider()
   power_supply_spider.powerSupplySpider()
-  print(power_supply_spider.valid_urls)
+  # print(power_supply_spider.valid_urls)

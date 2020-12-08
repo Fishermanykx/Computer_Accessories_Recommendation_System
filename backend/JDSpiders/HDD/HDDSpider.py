@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:24:11
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 11:23:34
+LastEditTime: 2020-12-08 20:11:36
 '''
 import json
 from pprint import pprint
@@ -34,6 +34,8 @@ class JDHDDSpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
+    prefs = {"profile.managed_default_content_settings.images": 2}
+    self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -143,8 +145,8 @@ class JDHDDSpider:
         try:
           price = float(price)
         except:
+          print("Error in converting price to float type")
           print(price)
-          # exit(1)
           continue
         HDD_prices.append(price)
         # print(price)
@@ -217,8 +219,8 @@ class JDHDDSpider:
       except:
         break
     name = introduction["商品名称"]
-    rotating_speed = introduction.get("转速", '没有写，不讲武德')
-    total_capacity = introduction.get("容量", "没有写，不讲武德")
+    rotating_speed = introduction.get("转速", '没有写')
+    total_capacity = introduction.get("容量", "没有写")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -284,7 +286,7 @@ class JDHDDSpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error! Cannot get comment num")
+      print("Error! Cannot get comment number")
       comment_num = "100"
       praise_rate = "90%"
 
@@ -332,7 +334,7 @@ class JDHDDSpider:
       print('成功插入', cursor.rowcount, '条数据')
     except:
       print("插入数据失败!")
-      # pprint(value)
+      print(link)
     cursor.close()
     db.close()
 

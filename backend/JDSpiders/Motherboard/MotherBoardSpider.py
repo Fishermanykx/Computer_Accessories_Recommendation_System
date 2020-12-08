@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 13:50:44
+LastEditTime: 2020-12-08 20:14:08
 '''
 
 import json
@@ -37,6 +37,8 @@ class JDMotherboardSpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
+    prefs = {"profile.managed_default_content_settings.images": 2}
+    self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -147,8 +149,8 @@ class JDMotherboardSpider:
         try:
           price = float(price)
         except:
+          print("Error in converting price to float type")
           print(price)
-          # exit(1)
           continue
         motherboard_prices.append(price)
         # print(price)
@@ -174,6 +176,7 @@ class JDMotherboardSpider:
           name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
               = self.getGoodsInfo()
         except:
+          print("Error in function getGoodsInfo")
           print(link)
           continue
 
@@ -190,11 +193,11 @@ class JDMotherboardSpider:
       """
     name = ""
     comment_num = ""
+    praise_rate = ""
     brand = ""
     tags = ""
     form_factor = ""
     platform = ""
-    praise_rate = ""
     introduction = {}  # dict类型，会转成 json 字符串
     Ptable_params = {}  # dict类型，会转成 json 字符串
 
@@ -222,7 +225,7 @@ class JDMotherboardSpider:
         break
     name = introduction["商品名称"]
     tags = introduction.get("应用场景", "无")
-    form_factor = introduction.get("板型", '没有写，不讲武德')
+    form_factor = introduction.get("板型", '没有写')
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -257,7 +260,7 @@ class JDMotherboardSpider:
           p_index += 1
         except:
           break
-    platform = Ptable_params["主体"].get("平台类型", "没有写，不讲武德")
+    platform = Ptable_params["主体"].get("平台类型", "没有写")
     Ptable_params = json.dumps(Ptable_params)  # 将 dict 转化为 json 字符串
     # pprint(Ptable_params)
     # exit(0)
@@ -292,7 +295,7 @@ class JDMotherboardSpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error!")
+      print("Error! Cannot get comment number")
       comment_num = "100"
       praise_rate = "90%"
 
@@ -341,7 +344,7 @@ class JDMotherboardSpider:
       print('成功插入', cursor.rowcount, '条数据')
     except:
       print("插入数据失败!")
-      # pprint(value)
+      print(link)
     cursor.close()
     db.close()
 

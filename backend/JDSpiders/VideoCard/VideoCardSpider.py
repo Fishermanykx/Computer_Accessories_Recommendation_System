@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 08:53:24
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 13:50:23
+LastEditTime: 2020-12-08 20:22:13
 '''
 import json
 from pprint import pprint
@@ -34,6 +34,8 @@ class JDVideoCardSpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
+    prefs = {"profile.managed_default_content_settings.images": 2}
+    self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -144,8 +146,8 @@ class JDVideoCardSpider:
         try:
           price = float(price)
         except:
+          print("Error in converting price to float type")
           print(price)
-          # exit(1)
           continue
         video_card_prices.append(price)
         # print(price)
@@ -255,8 +257,8 @@ class JDVideoCardSpider:
           p_index += 1
         except:
           break
-    card_length = Ptable_params["特性"].get("显卡长度", "没有写，不讲武德")
-    if (card_length != "没有写，不讲武德"):
+    card_length = Ptable_params["特性"].get("显卡长度", "没有写")
+    if (card_length != "没有写"):
       card_length = card_length[:-2]
     Ptable_params = json.dumps(Ptable_params)  # 将 dict 转化为 json 字符串
     # pprint(Ptable_params)
@@ -292,7 +294,7 @@ class JDVideoCardSpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error! Cannot get comment num")
+      print("Error! Cannot get comment number")
       comment_num = "100+"
       praise_rate = "90%"
 
@@ -340,8 +342,7 @@ class JDVideoCardSpider:
       print('成功插入', cursor.rowcount, '条数据')
     except:
       print("插入数据失败!")
-      # pprint(value)
-      print(value['link'])
+      print(link)
     cursor.close()
     db.close()
 
