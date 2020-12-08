@@ -1,27 +1,19 @@
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div[3]/a
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[2]/div/div[3]/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div/div[2]/div[1]/div[3]/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[2]/div/div/div[2]/div[1]/div[3]/a
 
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[5]/div/div/div[2]/div[1]/div[3]/a
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[36]/div/div/div[2]/div[1]/div[3]/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[4]/div/div[3]/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[7]/div/div[3]/a
 
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[33]/div/div[5]/span/a
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[36]/div/div/div[2]/div[1]/div[5]/span/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[5]/div/div[5]/span/a
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div/div[2]/div[1]/div[5]/span/a
 
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div[2]/strong/i
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[48]/div/div/div[2]/div[1]/div[2]/strong/i
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div/div[2]/div[1]/div[2]/strong/i
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[4]/div/div[2]/strong/i
 
 /html/body/div[10]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li/a
-/html/body/div[*]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[1]/li/a
 
 /html/body/div[10]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[2]/li[1]
 /html/body/div[10]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[2]/li[1]
 
 /html/body/div[10]/div[2]/div[1]/div[1]/ul/li[2]
-
-//*[@id="detail"]/div[2]/div[2]/div[1]/div[1]/h3
-//*[@id="detail"]/div[2]/div[2]/div[1]/div[1]/dl/dl[1]/dt
-
-/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[5]
-/html/body/div[10]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label
-/html/body/div[10]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em
-/html/body/div[10]/div[2]/div[3]/div[2]/div[1]/div[1]/div
+/html/body/div[10]/div[2]/div[1]/div[2]/div[2]/div[1]

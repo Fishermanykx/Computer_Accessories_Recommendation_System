@@ -1,5 +1,6 @@
 '''
 Description: 
+  tags ：应用场景
   clock_speed ：CPU 主频 (单位：GHz)
   core_num ：核心数量 (单核/双核/六核/八核/三十二核)
   have_core_graphics_card ：是否支持核显
@@ -9,7 +10,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 16:13:56
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 16:14:14
+LastEditTime: 2020-12-08 08:45:33
 '''
 import json
 from pprint import pprint
@@ -221,6 +222,7 @@ class JDMotherboardSpider:
       except:
         break
     name = introduction["商品名称"]
+    tags = introduction.get("应用场景", "无")
     core_num = introduction.get("核心数量", '没有写，不讲武德')
     have_core_graphics_card = introduction.get("是否支持核显", "没有写，不讲武德")
     have_cpu_fan = introduction.get("是否自带风扇", "不带风扇")  # 如果没写，默认不带风扇
@@ -258,7 +260,7 @@ class JDMotherboardSpider:
           p_index += 1
         except:
           break
-    platform = Ptable_params["主体"].get("平台类型", "没有写，不讲武德")
+    clock_speed = Ptable_params["规格"].get("主频", "没有写，不讲武德")
     Ptable_params = json.dumps(Ptable_params)  # 将 dict 转化为 json 字符串
     # pprint(Ptable_params)
     # exit(0)
@@ -268,7 +270,8 @@ class JDMotherboardSpider:
     comment_num, praise_rate = self.getCurrentCommentNumber()
     time.sleep(self.delay_time)
 
-    return name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params
+    return name, comment_num, praise_rate, brand, tags, clock_speed, core_num,\
+      have_core_graphics_card, have_cpu_fan, introduction, Ptable_params
 
   def getCurrentCommentNumber(self):
     # 转到 商品评价 页面
@@ -300,8 +303,8 @@ class JDMotherboardSpider:
     return comment_num, praise_rate
 
   def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link,
-                   brand, tags, form_factor, platform, introduction,
-                   Ptable_params):
+                   brand, tags, clock_speed, core_num, have_core_graphics_card,
+                   have_cpu_fan, introduction, Ptable_params):
     '''
     description: Insert data into table ** motherboard **
     '''
@@ -318,9 +321,10 @@ class JDMotherboardSpider:
     cursor = db.cursor()
 
     sql_insert = "INSERT INTO motherboard (name, comment_num, praise_rate, shop_name, price, link,"\
-        "brand, tags, form_factor, platform, introduction, Ptable_params) VALUES (%(name)s, %(comment_num)s,"\
-        "%(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, %(form_factor)s, "\
-        "%(platform)s, %(introduction)s, %(Ptable_params)s)"
+        "brand, tags, clock_speed, core_num, have_core_graphics_card, have_cpu_fan, introduction, "\
+        "Ptable_params) VALUES (%(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, "\
+        "%(link)s, %(brand)s, %(tags)s, %(clock_speed)s, %(core_num)s, %(have_core_graphics_card)s, "\
+          "%(have_cpu_fan)s, %(introduction)s, %(Ptable_params)s)"
     value = {
         "name": name,
         "comment_num": comment_num,
@@ -330,8 +334,10 @@ class JDMotherboardSpider:
         "link": link,
         "brand": brand,
         "tags": tags,
-        "form_factor": form_factor,
-        "platform": platform,
+        "clock_speed": clock_speed,
+        "core_num": core_num,
+        "have_core_graphics_card": have_core_graphics_card,
+        "have_cpu_fan": have_cpu_fan,
         "introduction": introduction,
         "Ptable_params": Ptable_params
     }
