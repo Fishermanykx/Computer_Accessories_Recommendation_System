@@ -12,7 +12,6 @@ CREATE TABLE `power_supply` (
   `tags` varchar(255) DEFAULT NULL,
   `power` varchar(255) DEFAULT NULL,
   `size` varchar(255) DEFAULT NULL,
-  `wiring_type` varchar(255) DEFAULT NULL,
   `transfer_efficiency` varchar(255) DEFAULT NULL,
   `introduction` JSON,
   `Ptable_params` JSON,
