@@ -9,9 +9,10 @@ CREATE TABLE `cpu` (
   `price` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
   `brand` varchar(255) DEFAULT NULL,
-  `tags` varchar(255) DEFAULT NULL,
-  `card_length` varchar(255) DEFAULT NULL,
-  `rgb` varchar(255) DEFAULT NULL,
+  `clock_speed` varchar(255) DEFAULT NULL,
+  `core_num` varchar(255) DEFAULT NULL,
+  `have_core_graphics_card` varchar(255) DEFAULT NULL,
+  `have_cpu_fan` varchar(255) DEFAULT NULL,
   `introduction` JSON,
   `Ptable_params` JSON,
   PRIMARY KEY (`id`)

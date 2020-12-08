@@ -1,14 +1,15 @@
 '''
 Description: 
-  tags：应用场景
-  form_factor：板型 (E-ATX/ATX/M-ATX/ITX/Mini-ITX)
-  platform：平台类型 (AMD/Intel)
-  introduction：商品介绍的 .json
-  Ptable_params：规格与包装的 .json
+  clock_speed ：CPU 主频 (单位：GHz)
+  core_num ：核心数量 (单核/双核/六核/八核/三十二核)
+  have_core_graphics_card ：是否支持核显
+  have_cpu_fan ：是否自带风扇
+  introduction ：商品介绍的 .json
+  Ptable_params ：规格与包装的 .json
 Author: Fishermanykx
 Date: 2020-12-06 16:13:56
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 10:41:25
+LastEditTime: 2020-12-07 16:14:14
 '''
 import json
 from pprint import pprint
@@ -106,7 +107,7 @@ class JDMotherboardSpider:
                 "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")
             time.sleep(2 * self.delay_time)
         # 判断链接长度是否超标
-        if len(url_tmp) > 3 * len("https://item.jd.com/100003815425.html"):
+        if len(url_tmp) > 3 * len("https://item.jd.com/100006773296.html"):
           continue
         # 获得店铺，判断是否为京东自营
         try:
@@ -220,8 +221,9 @@ class JDMotherboardSpider:
       except:
         break
     name = introduction["商品名称"]
-    tags = introduction.get("应用场景", "无")
-    form_factor = introduction.get("板型", '没有写，不讲武德')
+    core_num = introduction.get("核心数量", '没有写，不讲武德')
+    have_core_graphics_card = introduction.get("是否支持核显", "没有写，不讲武德")
+    have_cpu_fan = introduction.get("是否自带风扇", "不带风扇")  # 如果没写，默认不带风扇
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
