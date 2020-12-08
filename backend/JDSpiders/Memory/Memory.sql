@@ -9,7 +9,6 @@ CREATE TABLE `memory` (
   `price` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
   `brand` varchar(255) DEFAULT NULL,
-  `tags` varchar(255) DEFAULT NULL,
   `frequency` varchar(255) DEFAULT NULL,
   `total_capacity` varchar(255) DEFAULT NULL,
   `memory_num` varchar(255) DEFAULT NULL,
