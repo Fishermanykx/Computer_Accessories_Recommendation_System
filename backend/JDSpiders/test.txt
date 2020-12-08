@@ -1,3 +1,7 @@
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[1]/div/div/div[2]/div[1]/div[5]/span/a
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[3]/div/div[5]/span/a
-/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[7]/div/div[5]/span/a
+/html/body/div[10]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label
+/html/body/div[10]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label
+/html/body/div[12]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label
+
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[25]/div/div[3]/a/em
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[49]/div/div[3]/a/em
+/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[11]/div/div/div[2]/div[1]/div[3]/a/em
