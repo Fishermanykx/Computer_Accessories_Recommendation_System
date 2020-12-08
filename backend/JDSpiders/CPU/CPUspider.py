@@ -10,7 +10,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 16:13:56
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 08:45:33
+LastEditTime: 2020-12-08 09:16:19
 '''
 import json
 from pprint import pprint
@@ -32,7 +32,7 @@ MYSQL_PORT = 3306
 MYSQL_DB = "computer_accessories"
 
 
-class JDMotherboardSpider:
+class JDCPUSpider:
 
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
@@ -48,14 +48,14 @@ class JDMotherboardSpider:
     # 使用cursor()方法创建一个游标对象cursor
     cursor = db.cursor()
 
-    query = "truncate table motherboard"
+    query = "truncate table cpu"
     cursor.execute(query)
     db.commit()
     print("原表已清空")
     cursor.close()
     db.close()
 
-  def motherboardSpider(self):
+  def CPUSpider(self):
     start_urls = []
     # 按 综合 抓，否则抓到的全是板U套装。。。
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C678&page="
@@ -77,8 +77,8 @@ class JDMotherboardSpider:
       )  # 下拉页面，从而显示隐藏界面
       time.sleep(3 * self.delay_time)
 
-      motherboard_urls = []
-      motherboard_prices = []
+      cpu_urls = []
+      cpu_prices = []
       shop_names = []
 
       # 对每页商品，爬取商品链接
@@ -133,7 +133,7 @@ class JDMotherboardSpider:
         # print(url_tmp)
         # print(shop_name)
         # exit(0)
-        motherboard_urls.append(url_tmp)
+        cpu_urls.append(url_tmp)
         # 获得 price
         try:
           price = self.driver.find_element_by_xpath(
@@ -151,50 +151,55 @@ class JDMotherboardSpider:
           print(price)
           # exit(1)
           continue
-        motherboard_prices.append(price)
+        cpu_prices.append(price)
         # print(price)
         # exit(0)
-      # print(len(motherboard_urls))
-      # print(len(motherboard_prices))
+      # print(len(cpu_urls))
+      # print(len(cpu_prices))
       # print(len(shop_names))
-      # pprint(motherboard_urls)
-      # pprint(motherboard_prices)
+      # pprint(cpu_urls)
+      # pprint(cpu_prices)
       # pprint(shop_names)
       # exit(0)
 
       # 进入每个商品的页面，逐一访问
-      for i in range(len(motherboard_urls)):
+      for i in range(len(cpu_urls)):
         time.sleep(self.delay_time)
-        link = motherboard_urls[i]
-        price = motherboard_prices[i]
+        link = cpu_urls[i]
+        price = cpu_prices[i]
         shop_name = shop_names[i]
         self.driver.get(link)
         time.sleep(self.delay_time)
         # 点击商品，获取详细信息
         try:
-          name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
+          name, comment_num, praise_rate, brand, tags, clock_speed, core_num,\
+              have_core_graphics_card, have_cpu_fan, introduction, Ptable_params\
               = self.getGoodsInfo()
         except:
+          print("Error in function getGoodsInfo!")
           print(link)
           continue
 
         # 写入数据库
-        self.insertJDData(name, comment_num, praise_rate, shop_name, price,
-                          link, brand, tags, form_factor, platform,
-                          introduction, Ptable_params)
+        self.insertJDData(name, comment_num, praise_rate, shop_name, price, link,
+                          brand, tags, clock_speed, core_num, have_core_graphics_card,
+                          have_cpu_fan, introduction, Ptable_params)
         # exit(0)
 
   def getGoodsInfo(self):
     """
     返回值：
-      name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params
+      name, comment_num, praise_rate, brand, tags, clock_speed, core_num, 
+      have_core_graphics_card, have_cpu_fan, introduction, Ptable_params
       """
     name = ""
     comment_num = ""
     brand = ""
     tags = ""
-    form_factor = ""
-    platform = ""
+    clock_speed = ""
+    core_num = ""
+    have_core_graphics_card = ""
+    have_cpu_fan = ""
     praise_rate = ""
     introduction = {}  # dict类型，会转成 json 字符串
     Ptable_params = {}  # dict类型，会转成 json 字符串
@@ -271,7 +276,7 @@ class JDMotherboardSpider:
     time.sleep(self.delay_time)
 
     return name, comment_num, praise_rate, brand, tags, clock_speed, core_num,\
-      have_core_graphics_card, have_cpu_fan, introduction, Ptable_params
+        have_core_graphics_card, have_cpu_fan, introduction, Ptable_params
 
   def getCurrentCommentNumber(self):
     # 转到 商品评价 页面
@@ -296,7 +301,7 @@ class JDMotherboardSpider:
       praise_rate = self.driver.find_element_by_xpath(
           "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
     except:
-      print("Error!")
+      print("Error! Cannot get comments")
       comment_num = "100"
       praise_rate = "90%"
 
@@ -306,7 +311,7 @@ class JDMotherboardSpider:
                    brand, tags, clock_speed, core_num, have_core_graphics_card,
                    have_cpu_fan, introduction, Ptable_params):
     '''
-    description: Insert data into table ** motherboard **
+    description: Insert data into table ** cpu **
     '''
     # engine = sqlalchemy.create_engine(
     #     "mysql+pymysql://root:08239015@localhost:3306/jd_test")
@@ -320,11 +325,11 @@ class JDMotherboardSpider:
     # 使用cursor()方法创建一个游标对象cursor
     cursor = db.cursor()
 
-    sql_insert = "INSERT INTO motherboard (name, comment_num, praise_rate, shop_name, price, link,"\
+    sql_insert = "INSERT INTO cpu (name, comment_num, praise_rate, shop_name, price, link,"\
         "brand, tags, clock_speed, core_num, have_core_graphics_card, have_cpu_fan, introduction, "\
         "Ptable_params) VALUES (%(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, "\
         "%(link)s, %(brand)s, %(tags)s, %(clock_speed)s, %(core_num)s, %(have_core_graphics_card)s, "\
-          "%(have_cpu_fan)s, %(introduction)s, %(Ptable_params)s)"
+        "%(have_cpu_fan)s, %(introduction)s, %(Ptable_params)s)"
     value = {
         "name": name,
         "comment_num": comment_num,
@@ -354,5 +359,5 @@ class JDMotherboardSpider:
 
 
 if __name__ == "__main__":
-  motherboard_spider = JDMotherboardSpider()
-  motherboard_spider.motherboardSpider()
+  cpu_spider = JDCPUSpider()
+  cpu_spider.CPUSpider()
