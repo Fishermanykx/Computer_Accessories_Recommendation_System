@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 10:11:10
+LastEditTime: 2020-12-07 13:50:44
 '''
 
 import json
@@ -47,6 +47,8 @@ class JDMotherboardSpider:
         charset="utf8")
     # 使用cursor()方法创建一个游标对象cursor
     cursor = db.cursor()
+    # for data analysis
+    self.valid_urls = []
 
     query = "truncate table motherboard"
     cursor.execute(query)
@@ -58,7 +60,7 @@ class JDMotherboardSpider:
   def motherboardSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C681&psort=3&psort=3&page="
-    page_num = 8
+    page_num = 5
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -158,7 +160,7 @@ class JDMotherboardSpider:
       # pprint(motherboard_prices)
       # pprint(shop_names)
       # exit(0)
-
+      self.valid_urls.append(len(motherboard_urls))
       # 进入每个商品的页面，逐一访问
       for i in range(len(motherboard_urls)):
         time.sleep(self.delay_time)
@@ -347,3 +349,4 @@ class JDMotherboardSpider:
 if __name__ == "__main__":
   motherboard_spider = JDMotherboardSpider()
   motherboard_spider.motherboardSpider()
+  print(motherboard_spider.valid_urls)

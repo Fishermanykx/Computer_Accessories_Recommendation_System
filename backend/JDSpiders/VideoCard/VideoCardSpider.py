@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 08:53:24
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-07 10:13:05
+LastEditTime: 2020-12-07 13:50:23
 '''
 import json
 from pprint import pprint
@@ -51,11 +51,13 @@ class JDVideoCardSpider:
     print("原表已清空")
     cursor.close()
     db.close()
+    # for data analysis
+    self.valid_urls = []
 
   def videoCardSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C679&psort=3&psort=3&page="
-    page_num = 1
+    page_num = 5
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -157,6 +159,7 @@ class JDVideoCardSpider:
       # exit(0)
 
       # 进入每个商品的页面，逐一访问
+      self.valid_urls.append(len(video_card_urls))
       for i in range(len(video_card_urls)):
         time.sleep(self.delay_time)
         link = video_card_urls[i]
@@ -346,3 +349,4 @@ class JDVideoCardSpider:
 if __name__ == "__main__":
   video_card_spider = JDVideoCardSpider()
   video_card_spider.videoCardSpider()
+  print(video_card_spider.valid_urls)
