@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:24:11
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 20:11:36
+LastEditTime: 2020-12-11 22:05:39
 '''
 import json
 from pprint import pprint
@@ -59,7 +59,7 @@ class JDHDDSpider:
   def HDDSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C683&psort=3&psort=3&page="
-    page_num = 3
+    page_num = 10
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -121,6 +121,7 @@ class JDHDDSpider:
                 str(i + 1) +
                 "]/div/div/div[2]/div[1]/div[5]/span/a").get_attribute("title")
         except:
+          print("Fail to get shop name")
           print(url_tmp)
           continue
 
@@ -218,7 +219,11 @@ class JDHDDSpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
     rotating_speed = introduction.get("转速", '没有写')
     total_capacity = introduction.get("容量", "没有写")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
@@ -342,4 +347,4 @@ class JDHDDSpider:
 if __name__ == "__main__":
   HDD_spider = JDHDDSpider()
   HDD_spider.HDDSpider()
-  # print(HDD_spider.valid_urls)
+  print(HDD_spider.valid_urls)

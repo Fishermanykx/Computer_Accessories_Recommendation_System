@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-08 20:56:06
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-09 07:37:38
+LastEditTime: 2020-12-11 22:13:04
 '''
 import json
 from pprint import pprint
@@ -52,7 +52,7 @@ class JDCPURadiatorSpider:
   def CPURadiatorSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C682&psort=3&ev=3680_97402%7C%7C97403%7C%7C106254%7C%7C106255%5E&psort=3&page="
-    page_num = 1
+    page_num = 15
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -190,7 +190,7 @@ class JDCPURadiatorSpider:
         self.insertJDData(name, comment_num, praise_rate, shop_name, price,
                           link, brand,
                           introduction, Ptable_params)
-        # exit(0)
+      # exit(0)
 
   def getGoodsInfo(self):
     """
@@ -230,7 +230,11 @@ class JDCPURadiatorSpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -352,4 +356,4 @@ class JDCPURadiatorSpider:
 if __name__ == "__main__":
   cpu_radiator_spider = JDCPURadiatorSpider()
   cpu_radiator_spider.CPURadiatorSpider()
-  # print(cpu_radiator_spider.valid_urls)
+  print(cpu_radiator_spider.valid_urls)

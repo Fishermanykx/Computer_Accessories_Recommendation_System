@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-09 07:40:10
+LastEditTime: 2020-12-11 22:22:24
 '''
 
 import json
@@ -62,7 +62,7 @@ class JDMotherboardSpider:
   def motherboardSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C681&psort=3&psort=3&page="
-    page_num = 5
+    page_num = 16
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -223,7 +223,11 @@ class JDMotherboardSpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
     tags = introduction.get("应用场景", "无")
     form_factor = introduction.get("板型", '没有写')
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串

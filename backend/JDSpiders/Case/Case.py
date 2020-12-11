@@ -5,7 +5,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:35:17
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 21:34:22
+LastEditTime: 2020-12-11 22:42:40
 '''
 
 import json
@@ -58,7 +58,7 @@ class JDCaseSpider:
   def caseSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C687&psort=3&psort=3&page="
-    page_num = 1
+    page_num = 35
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -216,7 +216,11 @@ class JDCaseSpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -263,32 +267,40 @@ class JDCaseSpider:
     return name, comment_num, praise_rate, brand, introduction, Ptable_params
 
   def getCurrentCommentNumber(self):
-    # 转到 商品评价 页面
-    self.driver.find_element_by_xpath(
-        "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-    time.sleep(self.delay_time * 2)
+    cnt = 1
+    changed = 0
+    comment_num = "100"
+    praise_rate = "90%"
+    while cnt < 5:
+      try:
+        # 转到 商品评价 页面
+        self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+        time.sleep(2*self.delay_time)
 
-    # self.driver.execute_script(
-    #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
-    # time.sleep(3 * self.delay_time)
+        # self.driver.execute_script(
+        #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
 
-    # 勾选 只看当前商品评价 选项
-    try:
-      self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
-      ).click()
-      time.sleep(self.delay_time * 2)
-      comment_num = self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
-      comment_num = comment_num[1:-1]  # 去括号
-      time.sleep(self.delay_time * 2)
-      praise_rate = self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
-    except:
+      # 勾选 只看当前商品评价 选项
+        self.driver.find_element_by_xpath(
+            "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
+        ).click()
+        time.sleep(self.delay_time * 2)
+        comment_num = self.driver.find_element_by_xpath(
+            "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
+        comment_num = comment_num[1:-1]  # 去括号
+        time.sleep(self.delay_time * 2)
+        praise_rate = self.driver.find_element_by_xpath(
+            "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
+        changed = 1
+        break
+      except:
+        self.driver.refresh()
+        time.sleep(3*self.delay_time)
+        cnt += 1
+
+    if (not changed):
       print("Error! Cannot get comment number")
-      comment_num = "100"
-      praise_rate = "90%"
-
     return comment_num, praise_rate
 
   def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link,
@@ -337,4 +349,4 @@ class JDCaseSpider:
 if __name__ == "__main__":
   case_spider = JDCaseSpider()
   case_spider.caseSpider()
-  # print(case_spider.valid_urls)
+  print(case_spider.valid_urls)
