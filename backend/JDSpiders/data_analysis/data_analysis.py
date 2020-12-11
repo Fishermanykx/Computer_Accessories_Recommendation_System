@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:08:34
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 10:45:49
+LastEditTime: 2020-12-11 15:35:17
 '''
 
 import matplotlib.pyplot as plt
@@ -19,9 +19,12 @@ video_card = [36, 46, 39, 24, 18, 15, 12,
               14, 3, 4, 3, 4, 1, 8, 3, 7, 2, 0, 6, 1]
 ssd = [50, 52, 47, 50, 36, 36, 31, 26, 18, 22, 15, 16, 20, 9, 17, 13, 7, 4, 10, 6, 7,
        6, 2, 6, 2, 7, 3, 4, 1, 5, 0, 6, 4, 1, 5, 4, 0, 3, 4, 2, 3, 2, 1, 2, 1, 0, 3, 2, 0, 0]
-y = np.array(motherboard)
+board_u_suit = [38, 31, 32, 28, 31, 28, 30, 31, 31, 29, 25, 22, 17, 24, 15, 20, 21,
+                22, 15, 16, 13, 17, 12, 11, 8, 10, 9, 10, 15, 15, 9, 12, 9, 15, 12, 6, 11, 11, 3, 6]
+# y = np.array(motherboard)
 # y = np.array(video_card)
 # y = np.array(ssd)
+y = np.array(board_u_suit)
 x = np.arange(len(y), dtype=int)
 x = x + 1
 y = y / 60
@@ -30,7 +33,7 @@ y = y / 60
 plt.grid(True)
 plt.plot(x, y, '-o')
 # 图像设置
-plt.title("Motherboard")
+plt.title("Board-U Suit")
 # plt.title("Video Card")
 # plt.title("SSD")
 plt.xlabel("页数")
