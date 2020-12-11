@@ -8,8 +8,9 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-11 14:25:04
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 16:27:27
+LastEditTime: 2020-12-11 17:07:22
 '''
+import re
 import json
 from pprint import pprint
 from selenium.common.exceptions import ElementNotInteractableException
@@ -172,6 +173,11 @@ class JDBoardUSuitSpider:
           print(link)
           continue
 
+        if (name == ""):
+          print("Name is NULL")
+          print(link)
+          continue
+
         # 写入数据库
         self.insertJDData(name, board, cpu, shop_name, price, link,
                           introduction, Ptable_params)
@@ -193,7 +199,7 @@ class JDBoardUSuitSpider:
     try:
       name, board, cpu = self.getSpecificNames()
     except:
-      print("Error in function getSpecificNames")
+      print("Error in function getSpecificNames, skip this product!")
 
     # 获取 introduction 页面
     front_str = "/html/body/div[*]/div[2]/div[1]/div[2]/div[1]/div[1]/ul[2]/li["
@@ -263,9 +269,28 @@ class JDBoardUSuitSpider:
     # 分析
     name_lis = name.strip().split('+')
     board = name_lis[0]
-    s = name_lis[1]
-    index = s.rfind("板U套装")
-    cpu = s[:index].strip()
+    ss = name_lis[1]
+    # 过滤无关词
+    indexs = []
+    index = -1
+    # 过滤规则
+    indexs.append(ss.find("酷睿"))
+    indexs.append(ss.find("CPU"))
+    indexs.append(ss.find("处理器"))
+    indexs.append(ss.find("盒装"))
+    indexs.append(ss.find("板"))
+    pat = r"\d*核\d*线程"
+    result = re.search(pat, ss)
+    if (result):
+      result = result.span()[0]
+      indexs.append(result)
+    indexs.sort()
+    # print(indexs)
+    for item in indexs:
+      if (item != -1):
+        index = item
+        break
+    cpu = ss[:index].strip()
 
     return name, board, cpu
 

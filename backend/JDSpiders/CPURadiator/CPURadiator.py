@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-08 20:56:06
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 22:37:38
+LastEditTime: 2020-12-09 07:37:38
 '''
 import json
 from pprint import pprint
@@ -179,9 +179,10 @@ class JDCPURadiatorSpider:
         self.driver.get(link)
         # 点击商品，获取详细信息
         try:
-          name, comment_num, praise_rate, brand, introduction, Ptable_params\
+          name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
               = self.getGoodsInfo()
         except:
+          print("Error in function getGoodsInfo")
           print(link)
           continue
 

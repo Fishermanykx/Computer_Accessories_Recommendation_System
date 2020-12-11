@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 20:14:08
+LastEditTime: 2020-12-09 07:40:10
 '''
 
 import json
@@ -268,37 +268,44 @@ class JDMotherboardSpider:
     # 点击进入评论页面
     time.sleep(self.delay_time)
     comment_num, praise_rate = self.getCurrentCommentNumber()
-    time.sleep(self.delay_time)
 
     return name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params
 
   def getCurrentCommentNumber(self):
-    # 转到 商品评价 页面
-    self.driver.find_element_by_xpath(
-        "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-    time.sleep(self.delay_time * 2)
+    cnt = 1
+    changed = 0
+    comment_num = "100"
+    praise_rate = "90%"
+    while cnt < 5:
+      try:
+        # 转到 商品评价 页面
+        self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+        time.sleep(2*self.delay_time)
 
-    # self.driver.execute_script(
-    #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
-    # time.sleep(3 * self.delay_time)
+        # self.driver.execute_script(
+        #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
 
-    # 勾选 只看当前商品评价 选项
-    try:
-      self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
-      ).click()
-      time.sleep(self.delay_time * 2)
-      comment_num = self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
-      comment_num = comment_num[1:-1]  # 去括号
-      time.sleep(self.delay_time * 2)
-      praise_rate = self.driver.find_element_by_xpath(
-          "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
-    except:
+      # 勾选 只看当前商品评价 选项
+        self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
+        ).click()
+        time.sleep(self.delay_time * 2)
+        comment_num = self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
+        comment_num = comment_num[1:-1]  # 去括号
+        time.sleep(self.delay_time * 2)
+        praise_rate = self.driver.find_element_by_xpath(
+            "/html/body/*/div[2]/div[3]/div[2]/div[1]/div[1]/div").text
+        changed = 1
+        break
+      except:
+        self.driver.refresh()
+        time.sleep(cnt * self.delay_time)
+        cnt += 1
+
+    if (not changed):
       print("Error! Cannot get comment number")
-      comment_num = "100"
-      praise_rate = "90%"
-
     return comment_num, praise_rate
 
   def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link,
@@ -352,4 +359,4 @@ class JDMotherboardSpider:
 if __name__ == "__main__":
   motherboard_spider = JDMotherboardSpider()
   motherboard_spider.motherboardSpider()
-  print(motherboard_spider.valid_urls)
+  # print(motherboard_spider.valid_urls)
