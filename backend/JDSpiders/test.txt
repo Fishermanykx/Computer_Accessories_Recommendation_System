@@ -1,3 +1,7 @@
+/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[1]
+/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[1]
+/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[1]
+
 /html/body/div[6]/div/div[2]/div[1]
 /html/body/div[6]/div/div[2]/div[1]
-技嘉（GIGABYTE）X570 AORUS PRO WIFI 主板+ AMD 锐龙 9 3900X 板U套装/主板+CPU套装
+/html/body/div[6]/div/div[2]/div[1]/text()

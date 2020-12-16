@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   热门配置单排行 【ZOL模拟装机】 ZOL中关村在线
+  </title>
+  <meta content="攒机,在线攒机,中关村攒机,攒机方案,电脑攒机,模拟攒机,组装电脑,diy组装电脑" name="keywords">
+   <meta content="中关村在线模拟攒机,在线攒机,中关村组装电脑" name="description"/>
+   <link href="//s.zol-img.com.cn/d/Diy/Diy_TopDiyNew.css?v=47677" rel="stylesheet"/>
+   <script>
+    document.domain="zol.com.cn";var __publicNavWidth=1000;
+   </script>
+   <meta content="format=xhtml; url=http://m.zol.com.cn/zj/?j=simple&amp;via=index" http-equiv="mobile-agent"/>
+   <meta content="format=html5; url=http://m.zol.com.cn/zj/topdiy/c1.html?via=index" http-equiv="mobile-agent"/>
+   <script type="text/javascript">
+    if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+					    if(window.location.href.indexOf("?via=")<0){
+					        try{
+					            if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+					                window.location.href="http://m.zol.com.cn/zj/topdiy/c1.html";
+					            }else if(/iPad/i.test(navigator.userAgent)){
+					            }else{
+					                window.location.href="http://m.zol.com.cn/zj/topdiy/c1.html?j=simple&via=index"
+					            }
+					        }catch(e){}
+					    }
+					}
+   </script>
+  </meta>
+ </head>
+ <body>
+  <!--全站的公共顶部-->
+  <link href="https://icon.zol-img.com.cn/public/css/global-sitennav.css?2014" rel="stylesheet"/>
+  <script src="https://icon.zol-img.com.cn/public/js/global-sitenav.js" type="text/javascript">
+  </script>
+  <script src="https://icon.zol-img.com.cn/getcook.js" type="text/javascript">
+  </script>
+  <script>
+   var pagetype = 'DiyTop';
+  </script>
+  <script src="https://p.zol-img.com.cn/product_ad/sub_index.js">
+  </script>
+  <div style="
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+">
+   <script>
+    write_ad("zj_index_top_top_DiyTop");
+   </script>
+  </div>
+  <!--顶部-->
+  <div class="nav-search">
+   <div class="navs-box clearfix">
+    <div class="inf">
+     <ul class="list clearfix">
+      <li class="li1">
+       <a href="http://diy.zol.com.cn/recommend.shtml">
+        <i class="icon-recommend">
+        </i>
+        编辑推荐
+       </a>
+      </li>
+      <li class="li2">
+       <a href="http://detail.zol.com.cn/">
+        <i class="icon-price">
+        </i>
+        硬件报价
+       </a>
+      </li>
+      <li class="li3">
+       <a href="http://bbs.zol.com.cn/diybbs/d231.html">
+        <i class="icon-bbs">
+        </i>
+        DIY攒机论坛
+       </a>
+      </li>
+      <!--              <li class="li4"><a href="http://diy.zol.com/"><i class="icon-mall"></i>DIY攒机馆</a></li>-->
+      <li class="li5">
+       <div class="search-box">
+        <input autocomplete="off" class="skey" data-source="" id="J_keywords" name="kword" type="text" value="请输入关键词或配置单名称"/>
+        <!--<input type="hidden" name="f" value="c">-->
+        <input class="sbtn" id="submit" type="submit" value="搜索"/>
+       </div>
+      </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <style>
+   .navs-box .inf{width:684px;}
+        .navs-box .inf .list{float:right;}
+        .zol20th{float: left;width: 50px;height: 36px;margin: 8px 0 0 219px;background: url(//icon.zol-img.com.cn/article/2011/logo2019/20th.png) no-repeat center;}
+  </style>
+  <div class="nav">
+   <div class="nav-box">
+    <ul class="navul" style="min-width: 800px">
+     <li id="menu_nav_index">
+      <a href="/" target="_self">
+       模拟攒机
+      </a>
+     </li>
+     <li id="menu_nav_zhinao">
+      <a href="/zhinan/" target="_self">
+       攒机指南
+      </a>
+     </li>
+     <li id="menu_nav_myplan">
+      <a href="/list_l2_1_1.html" target="_self">
+       我的方案
+      </a>
+     </li>
+     <li id="menu_nav_wyplan">
+      <a href="/list_t2018_l1_2_1.html" target="_self">
+       网友方案
+      </a>
+     </li>
+     <li id="menu_nav_shopList">
+      <a href="/list_l5_1_1.html" target="_self">
+       大师方案
+      </a>
+     </li>
+     <li id="menu_nav_DiyTop">
+      <a class="active">
+       配置排行榜
+      </a>
+     </li>
+     <li id="menu_nav_ProTop">
+      <a href="/top_product.html" target="_self">
+       网友首选配件
+      </a>
+     </li>
+     <li id="menu_nav_askDiy">
+      <a href="http://ask.zol.com.cn/new/add.php" target="_blank">
+       攒机问答
+      </a>
+     </li>
+     <li class="nav-select-box">
+      <h3>
+       <a class="nav-icon" href="javascript:void(0);" target="_self">
+        天梯图
+        <i class="icon">
+        </i>
+       </a>
+      </h3>
+      <dl class="nav-select">
+       <dd>
+        <a href="https://cpu.zol.com.cn/soc/" target="_blank">
+         CPU天梯图
+        </a>
+       </dd>
+       <dd>
+        <a href="http://vga.zol.com.cn/soc/" target="_blank">
+         显卡天梯图
+        </a>
+       </dd>
+       <dd>
+        <a href="http://power.zol.com.cn/soc/" target="_blank">
+         电源天梯图
+        </a>
+       </dd>
+       <dd>
+        <a href="http://ssd.zol.com.cn/soc/" target="_blank">
+         硬盘天梯图
+        </a>
+       </dd>
+      </dl>
+     </li>
+    </ul>
+    <span class="channel">
+     相关频道 :
+     <a class="cname" href="http://diy.zol.com.cn/">
+      DIY
+     </a>
+     <a class="cname" href="http://vga.zol.com.cn/">
+      显卡
+     </a>
+     <a class="cname" href="http://esports.zol.com.cn/">
+      电竞
+     </a>
+    </span>
+   </div>
+  </div>
+  <!-- end nav -->
+  <!-- main -->
+  <div class="wrapper">
+   <div class="breadcurmb">
+    <a href="/">
+     ZOL模拟攒机
+    </a>
+    <em>
+     &gt;
+    </em>
+    <span>
+     热门配置排行榜
+    </span>
+   </div>
+   <div class="bor-top">
+    <h3 class="h3top">
+     排行目录
+    </h3>
+    <div class="bor-box clearfix">
+     <div class="bor-list01">
+      <div class="bor-top-list">
+       <strong class="titbold">
+        热门配置综合排行
+       </strong>
+       <ul class="mobile-list">
+        <li>
+         <a href="#Z_1">
+          最受关注电脑配置
+         </a>
+        </li>
+        <li>
+         <a href="#Z_1">
+          投票最多电脑配置
+         </a>
+        </li>
+        <li>
+         <a href="#Z_1">
+          新鲜出炉电脑配置
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="bor-list02">
+      <div class="bor-top-list">
+       <strong class="titbold">
+        价格方案排行
+       </strong>
+       <ul class="mobile-list mobile-more clearfix">
+        <li>
+         <a href="#p_1" target="_self">
+          3000元以下
+         </a>
+        </li>
+        <li>
+         <a href="#p_1" target="_self">
+          5000-6000元
+         </a>
+        </li>
+        <li>
+         <a href="#p_1" target="_self">
+          3000-4000元
+         </a>
+        </li>
+        <li>
+         <a href="#p_2" target="_self">
+          6000-8000元
+         </a>
+        </li>
+        <li>
+         <a href="#p_2" target="_self">
+          4000-5000元
+         </a>
+        </li>
+        <li>
+         <a href="#p_2" target="_self">
+          8000元以上
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="bor-list02">
+      <div class="bor-top-list">
+       <strong class="titbold">
+        配置类型排行
+       </strong>
+       <ul class="mobile-list mobile-more clearfix">
+        <li>
+         <a href="#t_1" target="_self">
+          经济实惠型
+         </a>
+        </li>
+        <li>
+         <a href="#t_1" target="_self">
+          疯狂游戏型
+         </a>
+        </li>
+        <li>
+         <a href="#t_1" target="_self">
+          家用学习型
+         </a>
+        </li>
+        <li>
+         <a href="#t_2" target="_self">
+          图形音像型
+         </a>
+        </li>
+        <li>
+         <a href="#t_2" target="_self">
+          网吧游戏型
+         </a>
+        </li>
+        <li>
+         <a href="#t_2" target="_self">
+          豪华发烧型
+         </a>
+        </li>
+        <li>
+         <a href="#t_3" target="_self">
+          商务办公型
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="bor-list02 bor-list03">
+      <div class="bor-top-list">
+       <strong class="titbold">
+        电脑配件方案排行
+       </strong>
+       <ul class="mobile-list mobile-more clearfix">
+        <li>
+         <a href="#an_1" target="_self">
+          Intel CPU方案
+         </a>
+        </li>
+        <li>
+         <a href="#an_1" target="_self">
+          AMD CPU方案
+         </a>
+        </li>
+        <li>
+         <a href="#an_1" target="_self">
+          NVIDIA显卡方案
+         </a>
+        </li>
+        <li>
+         <a href="#an_2" target="_self">
+          AMD显卡方案
+         </a>
+        </li>
+        <li>
+         <a href="#an_2" target="_self">
+          集成显卡方案
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- 热门配置综合排行   -->
+   <div class="title special_tit" id="Z_1">
+    <strong class="t3">
+     热门配置综合排行
+    </strong>
+    <span>
+     （按月点击排序）
+    </span>
+   </div>
+   <div class="main-center clearfix">
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       最受关注
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9560500.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <span class="price">
+        ￥10611
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/8998557.html" target="_blank" title="正在使用的配置">
+        正在使用的配置
+       </a>
+       <span class="price">
+        ￥3823
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9621916.html" target="_blank" title="给兄弟配的，换300系显卡了">
+        给兄弟配的，换300系显卡了
+       </a>
+       <span class="price">
+        ￥14711
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9614426.html" target="_blank" title="i9-10900k">
+        i9-10900k
+       </a>
+       <span class="price">
+        ￥47688
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9675585.html" target="_blank" title="帮配电脑5000，给朋友看看合适不。">
+        帮配电脑5000，给朋友看看合适不
+       </a>
+       <span class="price">
+        ￥5263
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9675577.html" target="_blank" title="帮朋友配5000左右">
+        帮朋友配5000左右
+       </a>
+       <span class="price">
+        ￥5233
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9638190.html" target="_blank" title="Intel攒机">
+        Intel攒机
+       </a>
+       <span class="price">
+        ￥10810
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9675593.html" target="_blank" title="我的配置">
+        我的配置
+       </a>
+       <span class="price">
+        ￥24168
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9674727.html" target="_blank" title="随便发一个">
+        随便发一个
+       </a>
+       <span class="price">
+        ￥6447
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9675030.html" target="_blank" title="5900X+6800XT,万元游戏机">
+        5900X+6800XT,万元游戏机
+       </a>
+       <span class="price">
+        ￥13858
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       投票最多
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9560500.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <span class="price">
+        ￥10611
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/8998557.html" target="_blank" title="正在使用的配置">
+        正在使用的配置
+       </a>
+       <span class="price">
+        ￥3823
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9621916.html" target="_blank" title="给兄弟配的，换300系显卡了">
+        给兄弟配的，换300系显卡了
+       </a>
+       <span class="price">
+        ￥14711
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9675030.html" target="_blank" title="5900X+6800XT,万元游戏机">
+        5900X+6800XT,万元游戏机
+       </a>
+       <span class="price">
+        ￥13858
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9614426.html" target="_blank" title="i9-10900k">
+        i9-10900k
+       </a>
+       <span class="price">
+        ￥47688
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9675593.html" target="_blank" title="我的配置">
+        我的配置
+       </a>
+       <span class="price">
+        ￥24168
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9674727.html" target="_blank" title="随便发一个">
+        随便发一个
+       </a>
+       <span class="price">
+        ￥6447
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9675440.html" target="_blank" title="2020冬季-自用配置">
+        2020冬季-自用配置
+       </a>
+       <span class="price">
+        ￥13236
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9676847.html" target="_blank" title="日常办公家用">
+        日常办公家用
+       </a>
+       <span class="price">
+        ￥2270
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9677204.html" target="_blank" title="5万元主机配置">
+        5万元主机配置
+       </a>
+       <span class="price">
+        ￥55730
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_l1_4_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       新鲜出炉
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       作者
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9680308.html" target="_blank" title="自己游戏使用（锐龙3代）.">
+        自己游戏使用（锐龙3代）.
+       </a>
+       <a class="price" href="/list_kweixin_faaqd_l4_1_1.html" target="_blank">
+        weixin_faa
+       </a>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9680307.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <a class="price" href="/list_ko2dbq0Ob5P95TANw88ZVLbVwpzSo_l4_1_1.html" target="_blank">
+        undefined
+       </a>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9680296.html" target="_blank" title="配置家用电脑">
+        配置家用电脑
+       </a>
+       <a class="price" href="/list_kweixin_nlktr_l4_1_1.html" target="_blank">
+        weixin_nlk
+       </a>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9680295.html" target="_blank" title="华硕TUF">
+        华硕TUF
+       </a>
+       <a class="price" href="/list_kweixin_nlktr_l4_1_1.html" target="_blank">
+        weixin_nlk
+       </a>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9680289.html" target="_blank" title="10700K+3070最新配置">
+        10700K+3070最新配置
+       </a>
+       <a class="price" href="/list_kweixin_nlktr_l4_1_1.html" target="_blank">
+        weixin_nlk
+       </a>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9680242.html" target="_blank" title="8000档深度游戏主机.">
+        8000档深度游戏主机.
+       </a>
+       <a class="price" href="/list_kweixin_xamn0_l4_1_1.html" target="_blank">
+        weixin_xam
+       </a>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9680240.html" target="_blank" title="游戏毁灭者吖">
+        游戏毁灭者吖
+       </a>
+       <a class="price" href="/list_k5ezmj0_l4_1_1.html" target="_blank">
+        5ezmj0
+       </a>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9680217.html" target="_blank" title="挑性价比最高.">
+        挑性价比最高.
+       </a>
+       <a class="price" href="/list_kweixin_w35om_l4_1_1.html" target="_blank">
+        weixin_w35
+       </a>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9680202.html" target="_blank" title="挑性价比最高.">
+        挑性价比最高.
+       </a>
+       <a class="price" href="/list_kqq_u9ho0_l4_1_1.html" target="_blank">
+        qq_u9ho0
+       </a>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9680174.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <a class="price" href="/list_kd0cx8k_l4_1_1.html" target="_blank">
+        d0cx8k
+       </a>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/" target="_blank">
+       我也来攒一台
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- end 热门配置综合排行   -->
+   <!-- 价格方案排行   -->
+   <div class="title special_tit">
+    <strong class="t3">
+     价格方案排行
+    </strong>
+    <span>
+     （按月点击排序）
+    </span>
+   </div>
+   <div class="main-center clearfix">
+    <div class="mainCenter-l" id="p_1">
+     <h3 class="plan_h3">
+      <font>
+       3000元以下
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9666167.html" target="_blank" title="家用一般游戏都带的动的性能型主机">
+        家用一般游戏都带的动的性能型主
+       </a>
+       <span class="price">
+        ￥2863
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9667463.html" target="_blank" title="经典吃机2020">
+        经典吃机2020
+       </a>
+       <span class="price">
+        ￥1683
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9667033.html" target="_blank" title="2020年11月9日自己用配置">
+        2020年11月9日自己用配置
+       </a>
+       <span class="price">
+        ￥2613
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9669416.html" target="_blank" title="办公实惠">
+        办公实惠
+       </a>
+       <span class="price">
+        ￥2194
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9672541.html" target="_blank" title="可LOL的ITX小旗舰">
+        可LOL的ITX小旗舰
+       </a>
+       <span class="price">
+        ￥2425
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9671208.html" target="_blank" title="办公专用">
+        办公专用
+       </a>
+       <span class="price">
+        ￥2753
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9672375.html" target="_blank" title="基础配置">
+        基础配置
+       </a>
+       <span class="price">
+        ￥2245
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9671364.html" target="_blank" title="办公设置">
+        办公设置
+       </a>
+       <span class="price">
+        ￥2255
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9674826.html" target="_blank" title="2020年12月2日简单办公">
+        2020年12月2日简单办公
+       </a>
+       <span class="price">
+        ￥2562
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9673791.html" target="_blank" title="极致简洁-学生学习机">
+        极致简洁-学生学习机
+       </a>
+       <span class="price">
+        ￥1720
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_j0-3000_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       3000-4000元
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/8998557.html" target="_blank" title="正在使用的配置">
+        正在使用的配置
+       </a>
+       <span class="price">
+        ￥3823
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9668156.html" target="_blank" title="普通办公使用">
+        普通办公使用
+       </a>
+       <span class="price">
+        ￥3039
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9667872.html" target="_blank" title="3500游戏套装">
+        3500游戏套装
+       </a>
+       <span class="price">
+        ￥3521
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9674144.html" target="_blank" title="朋友攒机参考">
+        朋友攒机参考
+       </a>
+       <span class="price">
+        ￥3239
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9669204.html" target="_blank" title="大家帮我看看这个够用吗？">
+        大家帮我看看这个够用吗？
+       </a>
+       <span class="price">
+        ￥3981
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9671071.html" target="_blank" title="经济实惠型 不到3500">
+        经济实惠型 不到3500
+       </a>
+       <span class="price">
+        ￥3482
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9673922.html" target="_blank" title="机器电脑主机">
+        机器电脑主机
+       </a>
+       <span class="price">
+        ￥3530
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9676296.html" target="_blank" title="i3 10100f">
+        i3 10100f
+       </a>
+       <span class="price">
+        ￥3739
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9675044.html" target="_blank" title="影音后续好拓展">
+        影音后续好拓展
+       </a>
+       <span class="price">
+        ￥3367
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9675021.html" target="_blank" title="经济实惠的配置.">
+        经济实惠的配置.
+       </a>
+       <span class="price">
+        ￥3337
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_j3000-4000_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       4000-5000元
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9621774.html" target="_blank" title="吃鸡三高特效">
+        吃鸡三高特效
+       </a>
+       <span class="price">
+        ￥4321
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9667741.html" target="_blank" title="一般打打游戏看看视频应该没问题吧">
+        一般打打游戏看看视频应该没问题
+       </a>
+       <span class="price">
+        ￥4570
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9666997.html" target="_blank" title="4000 元i5配置单">
+        4000 元i5配置单
+       </a>
+       <span class="price">
+        ￥4590
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9668133.html" target="_blank" title="4000 AMD配置">
+        4000 AMD配置
+       </a>
+       <span class="price">
+        ￥4317
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9668017.html" target="_blank" title="十代I3 ">
+        十代I3
+       </a>
+       <span class="price">
+        ￥4372
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9669694.html" target="_blank" title="游戏机器自己用的超值">
+        游戏机器自己用的超值
+       </a>
+       <span class="price">
+        ￥4485
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9669886.html" target="_blank" title="十代i3+16GB+M2+1660">
+        十代i3+16GB+M2+1660
+       </a>
+       <span class="price">
+        ￥4002
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9667109.html" target="_blank" title="家用打印资料，以后处理器和显卡升级一下">
+        家用打印资料，以后处理器和显卡
+       </a>
+       <span class="price">
+        ￥4512
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9670559.html" target="_blank" title="中端游戏主机，经济实惠型，4核8线程高频">
+        中端游戏主机，经济实惠型，4核8
+       </a>
+       <span class="price">
+        ￥4582
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9675072.html" target="_blank" title="崔志佳-家用配置">
+        崔志佳-家用配置
+       </a>
+       <span class="price">
+        ￥4887
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_j4000-5000_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l" id="p_2">
+     <h3 class="plan_h3">
+      <font>
+       5000-6000元
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9612317.html" target="_blank" title="10400+2060 新版">
+        10400+2060 新版
+       </a>
+       <span class="price">
+        ￥5708
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9612103.html" target="_blank" title="10400F加1660S（新）">
+        10400F加1660S（新）
+       </a>
+       <span class="price">
+        ￥5128
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9668104.html" target="_blank" title="3A图形设计电脑">
+        3A图形设计电脑
+       </a>
+       <span class="price">
+        ￥5596
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9675585.html" target="_blank" title="帮配电脑5000，给朋友看看合适不。">
+        帮配电脑5000，给朋友看看合适不
+       </a>
+       <span class="price">
+        ￥5263
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9668112.html" target="_blank" title="3A娱乐设计电脑">
+        3A娱乐设计电脑
+       </a>
+       <span class="price">
+        ￥5596
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9673281.html" target="_blank" title="够用，游戏商业设计兼顾">
+        够用，游戏商业设计兼顾
+       </a>
+       <span class="price">
+        ￥5104
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9670686.html" target="_blank" title="游戏商务">
+        游戏商务
+       </a>
+       <span class="price">
+        ￥5397
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9666709.html" target="_blank" title="自己家用">
+        自己家用
+       </a>
+       <span class="price">
+        ￥5856
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9675577.html" target="_blank" title="帮朋友配5000左右">
+        帮朋友配5000左右
+       </a>
+       <span class="price">
+        ￥5233
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9667086.html" target="_blank" title="一般家用足够应付，3A大作也能应付">
+        一般家用足够应付，3A大作也能应
+       </a>
+       <span class="price">
+        ￥5631
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_j5000-6000_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       6000-8000元
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9615243.html" target="_blank" title="自己游戏使用（锐龙3代）">
+        自己游戏使用（锐龙3代）
+       </a>
+       <span class="price">
+        ￥6111
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9651154.html" target="_blank" title="办公（自用）">
+        办公（自用）
+       </a>
+       <span class="price">
+        ￥7807
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9622657.html" target="_blank" title="给自己定的攒机目标">
+        给自己定的攒机目标
+       </a>
+       <span class="price">
+        ￥6521
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9674519.html" target="_blank" title="2020年12月1日配置设计电脑">
+        2020年12月1日配置设计电脑
+       </a>
+       <span class="price">
+        ￥6787
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9667479.html" target="_blank" title="电竞网咖">
+        电竞网咖
+       </a>
+       <span class="price">
+        ￥6140
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9672629.html" target="_blank" title="畅玩所有3A大作">
+        畅玩所有3A大作
+       </a>
+       <span class="price">
+        ￥7695
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9671553.html" target="_blank" title="影音图像型 6425元">
+        影音图像型 6425元
+       </a>
+       <span class="price">
+        ￥6425
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9667513.html" target="_blank" title="3500X+5500XT">
+        3500X+5500XT
+       </a>
+       <span class="price">
+        ￥6382
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9670108.html" target="_blank" title="AMD中低配置">
+        AMD中低配置
+       </a>
+       <span class="price">
+        ￥7746
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9667888.html" target="_blank" title="剪辑电脑配置.">
+        剪辑电脑配置.
+       </a>
+       <span class="price">
+        ￥6031
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_j6000-7000_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       8000元以上
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9560500.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <span class="price">
+        ￥10611
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/8875540.html" target="_blank" title="R7 5800X + RX 6800">
+        R7 5800X + RX 6800
+       </a>
+       <span class="price">
+        ￥12718
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9610110.html" target="_blank" title="十代i7这才爽-可升级">
+        十代i7这才爽-可升级
+       </a>
+       <span class="price">
+        ￥14340
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9619343.html" target="_blank" title="AMD很好的配置（新）">
+        AMD很好的配置（新）
+       </a>
+       <span class="price">
+        ￥9811
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9613726.html" target="_blank" title="能玩斗地主的万元配置">
+        能玩斗地主的万元配置
+       </a>
+       <span class="price">
+        ￥9452
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9609697.html" target="_blank" title="办公广告设计等等">
+        办公广告设计等等
+       </a>
+       <span class="price">
+        ￥11071
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9615181.html" target="_blank" title="挑性价比最高">
+        挑性价比最高
+       </a>
+       <span class="price">
+        ￥8911
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9621916.html" target="_blank" title="给兄弟配的，换300系显卡了">
+        给兄弟配的，换300系显卡了
+       </a>
+       <span class="price">
+        ￥14711
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9609693.html" target="_blank" title="3090真爽！">
+        3090真爽！
+       </a>
+       <span class="price">
+        ￥31341
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9614426.html" target="_blank" title="i9-10900k">
+        i9-10900k
+       </a>
+       <span class="price">
+        ￥47688
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_j8000-10000000_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- end 价格方案排行 -->
+   <!-- 配置类型排行  -->
+   <div class="title special_tit" id="t_1">
+    <strong class="t3">
+     配置类型排行
+    </strong>
+    <span>
+     （按月点击排序）
+    </span>
+   </div>
+   <div class="main-center clearfix">
+    <div class="mainCenter-l ">
+     <h3 class="plan_h3">
+      <font>
+       经济实惠型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9615243.html" target="_blank" title="自己游戏使用（锐龙3代）">
+        自己游戏使用（锐龙3代）
+       </a>
+       <span class="price">
+        ￥6111
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9612103.html" target="_blank" title="10400F加1660S（新）">
+        10400F加1660S（新）
+       </a>
+       <span class="price">
+        ￥5128
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/8998557.html" target="_blank" title="正在使用的配置">
+        正在使用的配置
+       </a>
+       <span class="price">
+        ￥3823
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9621774.html" target="_blank" title="吃鸡三高特效">
+        吃鸡三高特效
+       </a>
+       <span class="price">
+        ￥4321
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9666167.html" target="_blank" title="家用一般游戏都带的动的性能型主机">
+        家用一般游戏都带的动的性能型主
+       </a>
+       <span class="price">
+        ￥2863
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9667463.html" target="_blank" title="经典吃机2020">
+        经典吃机2020
+       </a>
+       <span class="price">
+        ￥1683
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9667033.html" target="_blank" title="2020年11月9日自己用配置">
+        2020年11月9日自己用配置
+       </a>
+       <span class="price">
+        ￥2613
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9675585.html" target="_blank" title="帮配电脑5000，给朋友看看合适不。">
+        帮配电脑5000，给朋友看看合适不
+       </a>
+       <span class="price">
+        ￥5263
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9667872.html" target="_blank" title="3500游戏套装">
+        3500游戏套装
+       </a>
+       <span class="price">
+        ￥3521
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9674144.html" target="_blank" title="朋友攒机参考">
+        朋友攒机参考
+       </a>
+       <span class="price">
+        ￥3239
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c1_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l ">
+     <h3 class="plan_h3">
+      <font>
+       家用学习型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9622657.html" target="_blank" title="给自己定的攒机目标">
+        给自己定的攒机目标
+       </a>
+       <span class="price">
+        ￥6521
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9668133.html" target="_blank" title="4000 AMD配置">
+        4000 AMD配置
+       </a>
+       <span class="price">
+        ￥4317
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9667086.html" target="_blank" title="一般家用足够应付，3A大作也能应付">
+        一般家用足够应付，3A大作也能应
+       </a>
+       <span class="price">
+        ￥5631
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9672828.html" target="_blank" title="坐等锐龙R7 5700X">
+        坐等锐龙R7 5700X
+       </a>
+       <span class="price">
+        ￥12770
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9667109.html" target="_blank" title="家用打印资料，以后处理器和显卡升级一下">
+        家用打印资料，以后处理器和显卡
+       </a>
+       <span class="price">
+        ￥4512
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9675440.html" target="_blank" title="2020冬季-自用配置">
+        2020冬季-自用配置
+       </a>
+       <span class="price">
+        ￥13236
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9671834.html" target="_blank" title="家庭电脑组装配置，求指教。">
+        家庭电脑组装配置，求指教。
+       </a>
+       <span class="price">
+        ￥11679
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9676847.html" target="_blank" title="日常办公家用">
+        日常办公家用
+       </a>
+       <span class="price">
+        ￥2270
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9669687.html" target="_blank" title="5k预算自用">
+        5k预算自用
+       </a>
+       <span class="price">
+        ￥5097
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9671873.html" target="_blank" title="甲鱼的电脑20201123">
+        甲鱼的电脑20201123
+       </a>
+       <span class="price">
+        ￥19570
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c2_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l ">
+     <h3 class="plan_h3">
+      <font>
+       网吧游戏型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9619343.html" target="_blank" title="AMD很好的配置（新）">
+        AMD很好的配置（新）
+       </a>
+       <span class="price">
+        ￥9811
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9615181.html" target="_blank" title="挑性价比最高">
+        挑性价比最高
+       </a>
+       <span class="price">
+        ￥8911
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9620277.html" target="_blank" title="直播联盟吃鸡">
+        直播联盟吃鸡
+       </a>
+       <span class="price">
+        ￥11491
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9667741.html" target="_blank" title="一般打打游戏看看视频应该没问题吧">
+        一般打打游戏看看视频应该没问题
+       </a>
+       <span class="price">
+        ￥4570
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9667479.html" target="_blank" title="电竞网咖">
+        电竞网咖
+       </a>
+       <span class="price">
+        ￥6140
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9673295.html" target="_blank" title="全套万元内的电脑">
+        全套万元内的电脑
+       </a>
+       <span class="price">
+        ￥9297
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9670686.html" target="_blank" title="游戏商务">
+        游戏商务
+       </a>
+       <span class="price">
+        ￥5397
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9666709.html" target="_blank" title="自己家用">
+        自己家用
+       </a>
+       <span class="price">
+        ￥5856
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9667513.html" target="_blank" title="3500X+5500XT">
+        3500X+5500XT
+       </a>
+       <span class="price">
+        ￥6382
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9669694.html" target="_blank" title="游戏机器自己用的超值">
+        游戏机器自己用的超值
+       </a>
+       <span class="price">
+        ￥4485
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c21_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l" id="t_2">
+     <h3 class="plan_h3">
+      <font>
+       商务办公型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9609697.html" target="_blank" title="办公广告设计等等">
+        办公广告设计等等
+       </a>
+       <span class="price">
+        ￥11071
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9651154.html" target="_blank" title="办公（自用）">
+        办公（自用）
+       </a>
+       <span class="price">
+        ￥7807
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9668156.html" target="_blank" title="普通办公使用">
+        普通办公使用
+       </a>
+       <span class="price">
+        ￥3039
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9666997.html" target="_blank" title="4000 元i5配置单">
+        4000 元i5配置单
+       </a>
+       <span class="price">
+        ￥4590
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9671208.html" target="_blank" title="办公专用">
+        办公专用
+       </a>
+       <span class="price">
+        ￥2753
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9638190.html" target="_blank" title="Intel攒机">
+        Intel攒机
+       </a>
+       <span class="price">
+        ￥10810
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9671364.html" target="_blank" title="办公设置">
+        办公设置
+       </a>
+       <span class="price">
+        ￥2255
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9673204.html" target="_blank" title="耐抗文字编辑">
+        耐抗文字编辑
+       </a>
+       <span class="price">
+        ￥6675
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9667151.html" target="_blank" title="公司用配置">
+        公司用配置
+       </a>
+       <span class="price">
+        ￥14207
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9673532.html" target="_blank" title="办公专用的十代I3配置">
+        办公专用的十代I3配置
+       </a>
+       <span class="price">
+        ￥2843
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c6_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       疯狂游戏型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9560500.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <span class="price">
+        ￥10611
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/8875540.html" target="_blank" title="R7 5800X + RX 6800">
+        R7 5800X + RX 6800
+       </a>
+       <span class="price">
+        ￥12718
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9610110.html" target="_blank" title="十代i7这才爽-可升级">
+        十代i7这才爽-可升级
+       </a>
+       <span class="price">
+        ￥14340
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9621916.html" target="_blank" title="给兄弟配的，换300系显卡了">
+        给兄弟配的，换300系显卡了
+       </a>
+       <span class="price">
+        ￥14711
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9657611.html" target="_blank" title="R9 5900X+3080(顶配游戏)">
+        R9 5900X+3080(顶配游戏)
+       </a>
+       <span class="price">
+        ￥19161
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9213977.html" target="_blank" title="i9 10850K + RTX 3070">
+        i9 10850K + RTX 3070
+       </a>
+       <span class="price">
+        ￥12197
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9666329.html" target="_blank" title="10700K+3070(Int高配游戏)">
+        10700K+3070(Int高配游戏)
+       </a>
+       <span class="price">
+        ￥16491
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9672629.html" target="_blank" title="畅玩所有3A大作">
+        畅玩所有3A大作
+       </a>
+       <span class="price">
+        ￥7695
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9657600.html" target="_blank" title="R75800X+6800XT(高配游戏)">
+        R75800X+6800XT(高配游戏)
+       </a>
+       <span class="price">
+        ￥15951
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9666324.html" target="_blank" title="5800X＋3070(ROG)">
+        5800X＋3070(ROG)
+       </a>
+       <span class="price">
+        ￥22230
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c5_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       图形音像型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9612317.html" target="_blank" title="10400+2060 新版">
+        10400+2060 新版
+       </a>
+       <span class="price">
+        ￥5708
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9668104.html" target="_blank" title="3A图形设计电脑">
+        3A图形设计电脑
+       </a>
+       <span class="price">
+        ￥5596
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9674519.html" target="_blank" title="2020年12月1日配置设计电脑">
+        2020年12月1日配置设计电脑
+       </a>
+       <span class="price">
+        ￥6787
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9668112.html" target="_blank" title="3A娱乐设计电脑">
+        3A娱乐设计电脑
+       </a>
+       <span class="price">
+        ￥5596
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9673281.html" target="_blank" title="够用，游戏商业设计兼顾">
+        够用，游戏商业设计兼顾
+       </a>
+       <span class="price">
+        ￥5104
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9671553.html" target="_blank" title="影音图像型 6425元">
+        影音图像型 6425元
+       </a>
+       <span class="price">
+        ￥6425
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9667888.html" target="_blank" title="剪辑电脑配置.">
+        剪辑电脑配置.
+       </a>
+       <span class="price">
+        ￥6031
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9670507.html" target="_blank" title="做设计玩游戏统统没问题">
+        做设计玩游戏统统没问题
+       </a>
+       <span class="price">
+        ￥6467
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9673211.html" target="_blank" title="干活的机器啊">
+        干活的机器啊
+       </a>
+       <span class="price">
+        ￥13120
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9673104.html" target="_blank" title="这个就是平面的">
+        这个就是平面的
+       </a>
+       <span class="price">
+        ￥5241
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c8_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l" id="t_3">
+     <h3 class="plan_h3">
+      <font>
+       豪华发烧型
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9613726.html" target="_blank" title="能玩斗地主的万元配置">
+        能玩斗地主的万元配置
+       </a>
+       <span class="price">
+        ￥9452
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9609693.html" target="_blank" title="3090真爽！">
+        3090真爽！
+       </a>
+       <span class="price">
+        ￥31341
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9614426.html" target="_blank" title="i9-10900k">
+        i9-10900k
+       </a>
+       <span class="price">
+        ￥47688
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9671914.html" target="_blank" title="当代土豪机，天下能敌">
+        当代土豪机，天下能敌
+       </a>
+       <span class="price">
+        ￥170665
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9675593.html" target="_blank" title="我的配置">
+        我的配置
+       </a>
+       <span class="price">
+        ￥24168
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9667561.html" target="_blank" title="5800x发烧型">
+        5800x发烧型
+       </a>
+       <span class="price">
+        ￥18676
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9668947.html" target="_blank" title="下一代家用游戏电脑">
+        下一代家用游戏电脑
+       </a>
+       <span class="price">
+        ￥8087
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9674078.html" target="_blank" title="rog全家桶">
+        rog全家桶
+       </a>
+       <span class="price">
+        ￥42190
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9667563.html" target="_blank" title="5900x发烧">
+        5900x发烧
+       </a>
+       <span class="price">
+        ￥19466
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9673374.html" target="_blank" title="5950x最爽配置，技嘉是真他娘的香">
+        5950x最爽配置，技嘉是真他娘的
+       </a>
+       <span class="price">
+        ￥89136
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_c3_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- end 配置类型排行 -->
+   <!-- 电脑配件方案排行  -->
+   <div class="title special_tit">
+    <strong class="t3">
+     电脑配件方案排行
+    </strong>
+    <span>
+     （按月点击排序）
+    </span>
+   </div>
+   <div class="main-center clearfix" id="an_1">
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       Intel处理器
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9560500.html" target="_blank" title="2020超高性价比游戏">
+        2020超高性价比游戏
+       </a>
+       <span class="price">
+        ￥10611
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9610110.html" target="_blank" title="十代i7这才爽-可升级">
+        十代i7这才爽-可升级
+       </a>
+       <span class="price">
+        ￥14340
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9612317.html" target="_blank" title="10400+2060 新版">
+        10400+2060 新版
+       </a>
+       <span class="price">
+        ￥5708
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9612103.html" target="_blank" title="10400F加1660S（新）">
+        10400F加1660S（新）
+       </a>
+       <span class="price">
+        ￥5128
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9613726.html" target="_blank" title="能玩斗地主的万元配置">
+        能玩斗地主的万元配置
+       </a>
+       <span class="price">
+        ￥9452
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9609697.html" target="_blank" title="办公广告设计等等">
+        办公广告设计等等
+       </a>
+       <span class="price">
+        ￥11071
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9615181.html" target="_blank" title="挑性价比最高">
+        挑性价比最高
+       </a>
+       <span class="price">
+        ￥8911
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9621916.html" target="_blank" title="给兄弟配的，换300系显卡了">
+        给兄弟配的，换300系显卡了
+       </a>
+       <span class="price">
+        ￥14711
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9609693.html" target="_blank" title="3090真爽！">
+        3090真爽！
+       </a>
+       <span class="price">
+        ￥31341
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9614426.html" target="_blank" title="i9-10900k">
+        i9-10900k
+       </a>
+       <span class="price">
+        ￥47688
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_p1_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       AMD处理器
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/8875540.html" target="_blank" title="R7 5800X + RX 6800">
+        R7 5800X + RX 6800
+       </a>
+       <span class="price">
+        ￥12718
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9615243.html" target="_blank" title="自己游戏使用（锐龙3代）">
+        自己游戏使用（锐龙3代）
+       </a>
+       <span class="price">
+        ￥6111
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9619343.html" target="_blank" title="AMD很好的配置（新）">
+        AMD很好的配置（新）
+       </a>
+       <span class="price">
+        ￥9811
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/8998557.html" target="_blank" title="正在使用的配置">
+        正在使用的配置
+       </a>
+       <span class="price">
+        ￥3823
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9666167.html" target="_blank" title="家用一般游戏都带的动的性能型主机">
+        家用一般游戏都带的动的性能型主
+       </a>
+       <span class="price">
+        ￥2863
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9657611.html" target="_blank" title="R9 5900X+3080(顶配游戏)">
+        R9 5900X+3080(顶配游戏)
+       </a>
+       <span class="price">
+        ￥19161
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9667463.html" target="_blank" title="经典吃机2020">
+        经典吃机2020
+       </a>
+       <span class="price">
+        ￥1683
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9668104.html" target="_blank" title="3A图形设计电脑">
+        3A图形设计电脑
+       </a>
+       <span class="price">
+        ￥5596
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9667872.html" target="_blank" title="3500游戏套装">
+        3500游戏套装
+       </a>
+       <span class="price">
+        ￥3521
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9668112.html" target="_blank" title="3A娱乐设计电脑">
+        3A娱乐设计电脑
+       </a>
+       <span class="price">
+        ￥5596
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_p2_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       NVIDIA显卡
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/9377053.html" target="_blank" title="高校学生自配 大神帮忙看看 做普通数值运">
+        高校学生自配 大神帮忙看看 做普
+       </a>
+       <span class="price">
+        ￥6661
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/9561774.html" target="_blank" title="AMD主流游戏平台">
+        AMD主流游戏平台
+       </a>
+       <span class="price">
+        ￥7012
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9323665.html" target="_blank" title="i7 8700经济型.">
+        i7 8700经济型.
+       </a>
+       <span class="price">
+        ￥6472
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/9363341.html" target="_blank" title="疯狂游戏，高清不伤眼.">
+        疯狂游戏，高清不伤眼.
+       </a>
+       <span class="price">
+        ￥7400
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/9550156.html" target="_blank" title="适合穷人打游戏用.">
+        适合穷人打游戏用.
+       </a>
+       <span class="price">
+        ￥3144
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/9374364.html" target="_blank" title="自用配置单1">
+        自用配置单1
+       </a>
+       <span class="price">
+        ￥5511
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/9374707.html" target="_blank" title="Saka推荐">
+        Saka推荐
+       </a>
+       <span class="price">
+        ￥5872
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/9376044.html" target="_blank" title="游戏推荐">
+        游戏推荐
+       </a>
+       <span class="price">
+        ￥6930
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9377499.html" target="_blank" title="自用电脑（用了一些现有的）">
+        自用电脑（用了一些现有的）
+       </a>
+       <span class="price">
+        ￥6832
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/9264961.html" target="_blank" title="i9 9900k+2080ti">
+        i9 9900k+2080ti
+       </a>
+       <span class="price">
+        ￥24294
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_p3_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l" id="an_2">
+     <h3 class="plan_h3">
+      <font>
+       AMD显卡
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/8053524.html" target="_blank" title="2000以下的主机">
+        2000以下的主机
+       </a>
+       <span class="price">
+        ￥1986
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/8076196.html" target="_blank" title="超级实惠,快来买啊">
+        超级实惠,快来买啊
+       </a>
+       <span class="price">
+        ￥1534
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/8093029.html" target="_blank" title="【装机首选希捷SSHD】不妥协">
+        【装机首选希捷SSHD】不妥协
+       </a>
+       <span class="price">
+        ￥4956
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/8109590.html" target="_blank" title="带固态硬盘！！显示器！史上最便宜！！！">
+        带固态硬盘！！显示器！史上最便
+       </a>
+       <span class="price">
+        ￥1924
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/8116603.html" target="_blank" title="土豪求抱大腿系列">
+        土豪求抱大腿系列
+       </a>
+       <span class="price">
+        ￥2102
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_p4_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+    <div class="mainCenter-l">
+     <h3 class="plan_h3">
+      <font>
+       集成显卡
+      </font>
+      网友配置排行
+     </h3>
+     <div class="plan_tit clearfix">
+      <span class="plan_tit_l">
+       配置名称
+      </span>
+      <span class="plan_tit_r">
+       价格
+      </span>
+     </div>
+     <ul class="rank-list rank-list-mt">
+      <li class="no1">
+       <em>
+        1
+       </em>
+       <a href="/diy/detail/8228650.html" target="_blank" title="经济实惠型经济实惠型">
+        经济实惠型经济实惠型
+       </a>
+       <span class="price">
+        ￥2968
+       </span>
+      </li>
+      <li class="no2">
+       <em>
+        2
+       </em>
+       <a href="/diy/detail/8474991.html" target="_blank" title="机铁km-1">
+        机铁km-1
+       </a>
+       <span class="price">
+        ￥6116
+       </span>
+      </li>
+      <li class="no3">
+       <em>
+        3
+       </em>
+       <a href="/diy/detail/9377053.html" target="_blank" title="高校学生自配 大神帮忙看看 做普通数值运">
+        高校学生自配 大神帮忙看看 做普
+       </a>
+       <span class="price">
+        ￥6661
+       </span>
+      </li>
+      <li class="no4">
+       <em>
+        4
+       </em>
+       <a href="/diy/detail/8121573.html" target="_blank" title="无机箱无显卡">
+        无机箱无显卡
+       </a>
+       <span class="price">
+        ￥2751
+       </span>
+      </li>
+      <li class="no5">
+       <em>
+        5
+       </em>
+       <a href="/diy/detail/8095582.html" target="_blank" title="宁美国度才卖2899">
+        宁美国度才卖2899
+       </a>
+       <span class="price">
+        ￥3795
+       </span>
+      </li>
+      <li class="no6">
+       <em>
+        6
+       </em>
+       <a href="/diy/detail/8120031.html" target="_blank" title="帮你一朋友选的">
+        帮你一朋友选的
+       </a>
+       <span class="price">
+        ￥6861
+       </span>
+      </li>
+      <li class="no7">
+       <em>
+        7
+       </em>
+       <a href="/diy/detail/8141892.html" target="_blank" title="家用低功耗稳定游戏型配置">
+        家用低功耗稳定游戏型配置
+       </a>
+       <span class="price">
+        ￥4105
+       </span>
+      </li>
+      <li class="no8">
+       <em>
+        8
+       </em>
+       <a href="/diy/detail/8143976.html" target="_blank" title="家用普通型配置">
+        家用普通型配置
+       </a>
+       <span class="price">
+        ￥3184
+       </span>
+      </li>
+      <li class="no9">
+       <em>
+        9
+       </em>
+       <a href="/diy/detail/9561774.html" target="_blank" title="AMD主流游戏平台">
+        AMD主流游戏平台
+       </a>
+       <span class="price">
+        ￥7012
+       </span>
+      </li>
+      <li class="no10">
+       <em>
+        10
+       </em>
+       <a href="/diy/detail/8694566.html" target="_blank" title="a4主机">
+        a4主机
+       </a>
+       <span class="price">
+        ￥866
+       </span>
+      </li>
+     </ul>
+     <div class="aLink">
+      <a href="/list_p5_l1_1_1.html" target="_blank">
+       更多热门电脑配置
+       <em>
+        &gt;&gt;
+       </em>
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- end 电脑配件方案排行 -->
+  </div>
+  <script>
+   var pagetype = 'DiyTop';
+    // pv 统计代码 新版本
+    pagetype = typeof pagetype == 'undefined' ? 'index' : pagetype;
+    pagetype = pagetype=='zhinao' ? 'zhinan' : pagetype;
+    
+    var _zpv_cfg = {
+        terminal:'pc',
+        site: 'ZOL',
+        buz: 'media',
+        channel: location.hostname.substr(0,location.hostname.indexOf('.')),
+        pagetype: pagetype,
+        custom:{}
+    };
+
+    // 攒机单id
+    if (typeof mainId != 'undefined') { _zpv_cfg.custom['mainId'] = mainId; }
+  </script>
+  <script src="https://icon.zol-img.com.cn/public/js/web_footc.js" type="text/javascript">
+  </script>
+  <script src="https://icon.zol-img.com.cn/public/js/web_foot.js" type="text/javascript">
+  </script>
+  <script src="//s.zol-img.com.cn/d/Diy/Diy_TopDiyNew.js?v=47677">
+  </script>
+  <script src="https://icon.zol-img.com.cn/cms/js/backtop.js?201503">
+  </script>
+  <script src="https://icon.zol-img.com.cn/cms/js/switch.js" type="text/javascript">
+  </script>
+  <script src="https://icon.zol-img.com.cn/public/js/global-sitenav-footer.js?20141106" type="text/javascript">
+  </script>
+ </body>
+</html>
