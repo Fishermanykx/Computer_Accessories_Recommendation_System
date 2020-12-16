@@ -10,7 +10,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:12:01
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 20:12:17
+LastEditTime: 2020-12-11 22:10:01
 '''
 import json
 from pprint import pprint
@@ -62,7 +62,7 @@ class JDMemorySpider:
   def memorySpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C680&ev=210_1558%5E&page="
-    page_num = 3
+    page_num = 20
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -125,6 +125,26 @@ class JDMemorySpider:
                 "]/div/div/div[2]/div[1]/div[5]/span/a").get_attribute("title")
         except:
           print(url_tmp)
+          continue
+
+        try:
+          try:
+            name = self.driver.find_element_by_xpath(
+                "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
+                str(i+1) + "]/div/div[3]/a/em"
+            ).text
+          except:
+            name = self.driver.find_element_by_xpath(
+                "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
+                str(i+1) + "]/div/div/div[2]/div[1]/div[3]/a/em"
+            ).text
+        except:
+          print("Error in getting product name in the main page")
+          print(url_tmp)
+          continue
+
+        if ("笔记本" in name):
+          print(name)
           continue
 
         if ("京东自营" not in shop_name):
@@ -226,7 +246,14 @@ class JDMemorySpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
+      print("Error getting name in product page")
+
     frequency = introduction.get("频率", '2400/2666 (原链接没写)')
     total_capacity = introduction.get("总容量", "8GB (原链接没写)")
     memory_num = introduction.get("内存数量", "1条单条 (原链接没写)")
@@ -356,4 +383,4 @@ class JDMemorySpider:
 if __name__ == "__main__":
   memory_spider = JDMemorySpider()
   memory_spider.memorySpider()
-  # print(memory_spider.valid_urls)
+  print(memory_spider.valid_urls)

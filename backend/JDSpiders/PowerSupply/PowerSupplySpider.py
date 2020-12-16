@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:35:17
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 20:24:26
+LastEditTime: 2020-12-11 22:34:11
 '''
 
 import json
@@ -62,7 +62,7 @@ class JDPowerSupplySpider:
   def powerSupplySpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C691&psort=3&psort=3&page="
-    page_num = 2
+    page_num = 24
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -162,25 +162,25 @@ class JDPowerSupplySpider:
       # pprint(shop_names)
       # exit(0)
       self.valid_urls.append(len(power_supply_urls))
-      # 进入每个商品的页面，逐一访问
-      for i in range(len(power_supply_urls)):
-        link = power_supply_urls[i]
-        price = power_supply_prices[i]
-        shop_name = shop_names[i]
-        self.driver.get(link)
-        # 点击商品，获取详细信息
-        try:
-          name, comment_num, praise_rate, brand, tags, power, size, transfer_efficiency, introduction, Ptable_params\
-              = self.getGoodsInfo()
-        except:
-          print(link)
-          continue
+      # # 进入每个商品的页面，逐一访问
+      # for i in range(len(power_supply_urls)):
+      #   link = power_supply_urls[i]
+      #   price = power_supply_prices[i]
+      #   shop_name = shop_names[i]
+      #   self.driver.get(link)
+      #   # 点击商品，获取详细信息
+      #   try:
+      #     name, comment_num, praise_rate, brand, tags, power, size, transfer_efficiency, introduction, Ptable_params\
+      #         = self.getGoodsInfo()
+      #   except:
+      #     print(link)
+      #     continue
 
-        # 写入数据库
-        self.insertJDData(name, comment_num, praise_rate, shop_name, price,
-                          link, brand, tags, power, size, transfer_efficiency,
-                          introduction, Ptable_params)
-        # exit(0)
+      #   # 写入数据库
+      #   self.insertJDData(name, comment_num, praise_rate, shop_name, price,
+      #                     link, brand, tags, power, size, transfer_efficiency,
+      #                     introduction, Ptable_params)
+      #   # exit(0)
 
   def getGoodsInfo(self):
     """
@@ -351,4 +351,4 @@ class JDPowerSupplySpider:
 if __name__ == "__main__":
   power_supply_spider = JDPowerSupplySpider()
   power_supply_spider.powerSupplySpider()
-  # print(power_supply_spider.valid_urls)
+  print(power_supply_spider.valid_urls)

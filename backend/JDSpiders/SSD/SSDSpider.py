@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:26:48
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 20:15:55
+LastEditTime: 2020-12-11 22:26:30
 '''
 import json
 from pprint import pprint
@@ -59,7 +59,7 @@ class JDSSDSpider:
   def SSDSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C11303&psort=3&psort=3&page="
-    page_num = 5
+    page_num = 35
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -218,7 +218,11 @@ class JDSSDSpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
     interface = introduction.get("接口", '没有写')
     total_capacity = introduction.get("容量", "没有写")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
@@ -342,4 +346,4 @@ class JDSSDSpider:
 if __name__ == "__main__":
   SSD_spider = JDSSDSpider()
   SSD_spider.SSDSpider()
-  # print(SSD_spider.valid_urls)
+  print(SSD_spider.valid_urls)

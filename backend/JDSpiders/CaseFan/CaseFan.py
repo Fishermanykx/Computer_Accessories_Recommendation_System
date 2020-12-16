@@ -5,7 +5,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-08 20:45:47
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-08 22:30:55
+LastEditTime: 2020-12-11 22:17:09
 '''
 
 import json
@@ -55,7 +55,7 @@ class JDCaseFanSpider:
   def caseFanSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C682&psort=3&ev=3680_1062%5E&psort=3&page="
-    page_num = 1
+    page_num = 17
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -213,7 +213,11 @@ class JDCaseFanSpider:
         introd_index += 1
       except:
         break
-    name = introduction["商品名称"]
+    try:
+      name = self.driver.find_element_by_xpath(
+          "/html/body/div[6]/div/div[2]/div[1]").text
+    except:
+      name = introduction["商品名称"]
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
@@ -342,4 +346,4 @@ class JDCaseFanSpider:
 if __name__ == "__main__":
   case_fan_spider = JDCaseFanSpider()
   case_fan_spider.caseFanSpider()
-  # print(case_fan_spider.valid_urls)
+  print(case_fan_spider.valid_urls)
