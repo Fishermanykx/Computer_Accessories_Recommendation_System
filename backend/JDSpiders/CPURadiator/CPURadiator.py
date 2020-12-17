@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-08 20:56:06
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 23:59:49
+LastEditTime: 2020-12-17 14:42:19
 '''
 import json
 from pprint import pprint
@@ -52,9 +52,9 @@ class JDCPURadiatorSpider:
   def CPURadiatorSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C682&psort=3&ev=3680_97402%7C%7C97403%7C%7C106254%7C%7C106255%5E&psort=3&page="
-    page_num = 15
+    page_num = 5
     delta_page = 2
-    for i in range(1, page_num + 1):
+    for i in range(16, page_num + 16):
       url = url_root + str((i - 1) * delta_page + 1)
       start_urls.append(url)
     # print(start_urls)
