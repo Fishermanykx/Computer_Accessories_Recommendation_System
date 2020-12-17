@@ -1,38 +1,19 @@
 '''
 Description: 
-  frequency ：内存频率 (单位：MHz)
-  total_capacity ：总容量 (单位：G)
-  memory_num ：内存数量 (单条 or 套条)
-  appearance ：外观特征 (普条/马甲条/RGB灯条)
-  ddr_gen ：DDR代数 (ddr4/ddr3)
-  introduction ：商品介绍的 .json
-  Ptable_params ：规格与包装的 .json
 Author: Fishermanykx
-Date: 2020-12-07 13:12:01
+Date: 2020-12-15 06:55:38
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 23:39:17
+LastEditTime: 2020-12-15 09:35:10
 '''
-import json
 from pprint import pprint
 
-from selenium.common.exceptions import ElementNotInteractableException
-from selenium.common.exceptions import ElementClickInterceptedException
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.chrome.options import Options
-from selenium import webdriver
-
-import time
-import pymysql
-import sqlalchemy
-
-MYSQL_HOSTS = "127.0.0.1"
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "08239015"
-MYSQL_PORT = 3306
-MYSQL_DB = "computer_accessories"
+with open('dbg.txt', 'r') as f:
+  a = f.read()
+  links = eval(a)
+  # pprint(links)
 
 
-class JDMemorySpider:
+class JDCaseSpider:
 
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
@@ -52,17 +33,17 @@ class JDMemorySpider:
     # for data analysis
     self.valid_urls = []
 
-    query = "truncate table memory"
+    query = "truncate table computer_case"
     cursor.execute(query)
     db.commit()
     print("原表已清空")
     cursor.close()
     db.close()
 
-  def memorySpider(self):
+  def caseSpider(self):
     start_urls = []
-    url_root = "https://list.jd.com/list.html?cat=670%2C677%2C680&ev=210_1558%5E&page="
-    page_num = 20
+    url_root = "https://list.jd.com/list.html?cat=670%2C677%2C687&psort=3&psort=3&page="
+    page_num = 35
     delta_page = 2
     for i in range(1, page_num + 1):
       url = url_root + str((i - 1) * delta_page + 1)
@@ -73,16 +54,19 @@ class JDMemorySpider:
       time.sleep(self.delay_time)
       self.driver.execute_script(
           "window.scrollTo(0, 3 * document.body.scrollHeight / 4);")
-      time.sleep(2 * self.delay_time)
+      time.sleep(3 * self.delay_time)
       self.driver.execute_script(
           "window.scrollTo(0, 5 * document.body.scrollHeight / 6);"
       )  # 下拉页面，从而显示隐藏界面
       time.sleep(3 * self.delay_time)
 
-      memory_urls = []
-      memory_prices = []
+      case_urls = []
+      case_prices = []
       shop_names = []
 
+      with open('dbg.txt', 'r') as f:
+        a = f.read()
+        links = eval(a)
       # 对每页商品，爬取商品链接
       for i in range(60):
         # 获取商品链接
@@ -124,27 +108,8 @@ class JDMemorySpider:
                 str(i + 1) +
                 "]/div/div/div[2]/div[1]/div[5]/span/a").get_attribute("title")
         except:
+          print("Cannot get shop names")
           print(url_tmp)
-          continue
-
-        try:
-          try:
-            name = self.driver.find_element_by_xpath(
-                "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-                str(i+1) + "]/div/div[3]/a/em"
-            ).text
-          except:
-            name = self.driver.find_element_by_xpath(
-                "/html/body/div[7]/div/div[2]/div[1]/div/div[2]/ul/li[" +
-                str(i+1) + "]/div/div/div[2]/div[1]/div[3]/a/em"
-            ).text
-        except:
-          print("Error in getting product name in the main page")
-          print(url_tmp)
-          continue
-
-        if ("笔记本" in name):
-          print(name)
           continue
 
         if ("京东自营" not in shop_name):
@@ -153,7 +118,7 @@ class JDMemorySpider:
         # print(url_tmp)
         # print(shop_name)
         # exit(0)
-        memory_urls.append(url_tmp)
+        case_urls.append(url_tmp)
         # 获得 price
         try:
           price = self.driver.find_element_by_xpath(
@@ -171,56 +136,50 @@ class JDMemorySpider:
           print("Error in converting price to float type")
           print(price)
           continue
-        memory_prices.append(price)
+        case_prices.append(price)
         # print(price)
         # exit(0)
-      # print(len(memory_urls))
-      # print(len(memory_prices))
+      # print(len(case_urls))
+      # print(len(case_prices))
       # print(len(shop_names))
-      # pprint(memory_urls)
-      # pprint(memory_prices)
+      # pprint(case_urls)
+      # pprint(case_prices)
       # pprint(shop_names)
       # exit(0)
-      self.valid_urls.append(len(memory_urls))
+      self.valid_urls.append(len(case_urls))
       # 进入每个商品的页面，逐一访问
-      for i in range(len(memory_urls)):
-        time.sleep(self.delay_time)
-        link = memory_urls[i]
-        price = memory_prices[i]
+      for i in range(len(case_urls)):
+        link = case_urls[i]
+        price = case_prices[i]
         shop_name = shop_names[i]
         self.driver.get(link)
-        time.sleep(self.delay_time)
         # 点击商品，获取详细信息
         try:
-          name, comment_num, praise_rate, brand, frequency, total_capacity,\
-              memory_num, appearance, ddr_gen, introduction, Ptable_params \
+          name, comment_num, praise_rate, brand, introduction, Ptable_params\
               = self.getGoodsInfo()
         except:
-          print("Error in function getGoodsInfo!")
           print(link)
           continue
 
         # 写入数据库
         self.insertJDData(name, comment_num, praise_rate, shop_name, price,
-                          link, brand, frequency, total_capacity, memory_num,
-                          appearance, ddr_gen, introduction, Ptable_params)
+                          link, brand,
+                          introduction, Ptable_params)
         # exit(0)
 
   def getGoodsInfo(self):
     """
     返回值：
-      name, comment_num, praise_rate, brand, frequency, total_capacity, 
-      memory_num, appearance, ddr_gen, introduction, Ptable_params
+      name, comment_num, praise_rate, brand, introduction, Ptable_params
       """
     name = ""
     comment_num = ""
     praise_rate = ""
     brand = ""
-    frequency = ""
-    total_capacity = ""
-    memory_num = ""
-    appearance = ""
-    ddr_gen = ""
+    tags = ""
+    power = ""
+    size = ""
+    transfer_efficiency = ""
     introduction = {}  # dict类型，会转成 json 字符串
     Ptable_params = {}  # dict类型，会转成 json 字符串
 
@@ -246,25 +205,17 @@ class JDMemorySpider:
         introd_index += 1
       except:
         break
-
     try:
       name = self.driver.find_element_by_xpath(
           "/html/body/div[6]/div/div[2]/div[1]").text
     except:
       name = introduction["商品名称"]
-      print("Error getting name in product page")
-
-    frequency = introduction.get("频率", '2400/2666 (原链接没写)')
-    total_capacity = introduction.get("总容量", "8GB (原链接没写)")
-    memory_num = introduction.get("内存数量", "1条单条 (原链接没写)")
-    appearance = introduction.get("外观特征", "没有写")
-    ddr_gen = introduction.get("DDR代数", "没有写")
     introduction = json.dumps(introduction)  # 将 dict 转化为 json 字符串
     # pprint(introduction)
     # exit(0)
 
     # 点击进入 规格与包装 页面
-    time.sleep(self.delay_time)
+    time.sleep(self.delay_time * 2)
     self.driver.find_element_by_xpath(
         "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[2]").click()
     time.sleep(self.delay_time * 2)
@@ -298,9 +249,11 @@ class JDMemorySpider:
     # exit(0)
 
     # 点击进入评论页面
+    time.sleep(self.delay_time)
     comment_num, praise_rate = self.getCurrentCommentNumber()
+    time.sleep(self.delay_time)
 
-    return name, comment_num, praise_rate, brand, frequency, total_capacity, memory_num, appearance, ddr_gen, introduction, Ptable_params
+    return name, comment_num, praise_rate, brand, introduction, Ptable_params
 
   def getCurrentCommentNumber(self):
     cnt = 1
@@ -326,11 +279,11 @@ class JDMemorySpider:
 
       # 勾选 只看当前商品评价 选项
         self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
+            "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[9]/label"
         ).click()
         time.sleep(self.delay_time * 2)
         comment_num = self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
+            "/html/body/*/div[2]/div[3]/div[2]/div[2]/div[1]/ul/li[1]/a/em").text
         comment_num = comment_num[1:-1]  # 去括号
         time.sleep(self.delay_time * 2)
         praise_rate = self.driver.find_element_by_xpath(
@@ -346,10 +299,10 @@ class JDMemorySpider:
       print("Error! Cannot get comment number")
     return comment_num, praise_rate
 
-  def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link, brand, frequency, total_capacity, memory_num, appearance, ddr_gen,
-                   introduction, Ptable_params):
+  def insertJDData(self, name, comment_num, praise_rate, shop_name, price, link,
+                   brand, introduction, Ptable_params):
     '''
-    description: Insert data into table ** memory **
+    description: Insert data into table ** case **
     '''
     # engine = sqlalchemy.create_engine(
     #     "mysql+pymysql://root:08239015@localhost:3306/jd_test")
@@ -363,11 +316,9 @@ class JDMemorySpider:
     # 使用cursor()方法创建一个游标对象cursor
     cursor = db.cursor()
 
-    sql_insert = "INSERT INTO memory (name, comment_num, praise_rate, shop_name, price, link,"\
-        "brand, frequency, total_capacity, memory_num, appearance, ddr_gen, introduction, "\
-        "Ptable_params) VALUES (%(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s"\
-        ", %(link)s, %(brand)s, %(frequency)s, %(total_capacity)s, %(memory_num)s, %(appearance)s, "\
-        "%(ddr_gen)s, %(introduction)s, %(Ptable_params)s)"
+    sql_insert = "INSERT INTO computer_case (name, comment_num, praise_rate, shop_name, price, link,"\
+        "brand, introduction, Ptable_params) VALUES (%(name)s, %(comment_num)s,"\
+        "%(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(introduction)s, %(Ptable_params)s)"
     value = {
         "name": name,
         "comment_num": comment_num,
@@ -376,11 +327,6 @@ class JDMemorySpider:
         "price": price,
         "link": link,
         "brand": brand,
-        "frequency": frequency,
-        "total_capacity": total_capacity,
-        "memory_num": memory_num,
-        "appearance": appearance,
-        "ddr_gen": ddr_gen,
         "introduction": introduction,
         "Ptable_params": Ptable_params
     }
@@ -397,6 +343,9 @@ class JDMemorySpider:
 
 
 if __name__ == "__main__":
-  memory_spider = JDMemorySpider()
-  memory_spider.memorySpider()
-  print(memory_spider.valid_urls)
+  # case_spider = JDCaseSpider()
+  # case_spider.caseSpider()
+  # print(case_spider.valid_urls)
+  a = [51, 48, 47, 47, 42, 45, 45, 40, 42, 35, 27, 28, 24, 22, 20,
+       15, 10, 14, 7, 9, 6, 8, 9, 9, 7, 5, 6, 8, 7, 3, 5, 6, 8, 5, 3, 1, 1, 1, 0, 0]
+  print(sum(a[:35]))

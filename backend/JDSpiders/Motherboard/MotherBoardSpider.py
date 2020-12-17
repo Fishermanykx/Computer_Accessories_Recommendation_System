@@ -9,7 +9,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-06 18:22:42
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 22:22:24
+LastEditTime: 2020-12-11 23:23:14
 '''
 
 import json
@@ -283,9 +283,16 @@ class JDMotherboardSpider:
     while cnt < 5:
       try:
         # 转到 商品评价 页面
-        self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-        time.sleep(2*self.delay_time)
+        label = self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]"
+        ).text
+        if (label[:4] == "商品评价"):
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]").click()
+        else:
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+        time.sleep(self.delay_time)
 
         # self.driver.execute_script(
         #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
@@ -305,7 +312,7 @@ class JDMotherboardSpider:
         break
       except:
         self.driver.refresh()
-        time.sleep(cnt * self.delay_time)
+        time.sleep(3*self.delay_time)
         cnt += 1
 
     if (not changed):

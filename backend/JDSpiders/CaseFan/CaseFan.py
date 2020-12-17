@@ -5,7 +5,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-08 20:45:47
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 22:17:09
+LastEditTime: 2020-12-14 14:59:12
 '''
 
 import json
@@ -158,6 +158,7 @@ class JDCaseFanSpider:
       # 进入每个商品的页面，逐一访问
       for i in range(len(case_fan_urls)):
         link = case_fan_urls[i]
+        # link = "https://item.jd.com/6048813.html"
         price = case_fan_prices[i]
         shop_name = shop_names[i]
         self.driver.get(link)
@@ -271,9 +272,16 @@ class JDCaseFanSpider:
     while cnt < 5:
       try:
         # 转到 商品评价 页面
-        self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-        time.sleep(2*self.delay_time)
+        label = self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]"
+        ).text
+        if (label[:4] == "商品评价"):
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]").click()
+        else:
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+        time.sleep(self.delay_time*3)
 
         # self.driver.execute_script(
         #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面

@@ -7,7 +7,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 08:53:24
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 22:33:20
+LastEditTime: 2020-12-15 16:12:10
 '''
 import json
 from pprint import pprint
@@ -121,6 +121,7 @@ class JDVideoCardSpider:
                 str(i + 1) +
                 "]/div/div/div[2]/div[1]/div[5]/span/a").get_attribute("title")
         except:
+          print("Error getting shop name")
           print(url_tmp)
           continue
 
@@ -165,15 +166,18 @@ class JDVideoCardSpider:
       for i in range(len(video_card_urls)):
         time.sleep(self.delay_time)
         link = video_card_urls[i]
+
+        # link = 'https://item.jd.com/100015236850.html'
+
         price = video_card_prices[i]
         shop_name = shop_names[i]
         self.driver.get(link)
-        time.sleep(self.delay_time)
         # 点击商品，获取详细信息
         try:
           name, comment_num, praise_rate, brand, tags, card_length, rgb, introduction, Ptable_params\
               = self.getGoodsInfo()
         except:
+          print("Error getGoodsInfo")
           print(link)
           continue
 
@@ -220,10 +224,15 @@ class JDVideoCardSpider:
         introd_index += 1
       except:
         break
-    try:
+    try:  # /html/body/div[8]/div/div[2]/div[1]/text()
       name = self.driver.find_element_by_xpath(
-          "/html/body/div[6]/div/div[2]/div[1]").text
+          "/html/body/div[8]/div/div[2]/div[1]").text
+      if (name == ""):
+        name = self.driver.find_element_by_xpath(
+            "/html/body/div[6]/div/div[2]/div[1]").text
     except:
+      name = introduction["商品名称"]
+    if (name == "" or "加入PLUS会员" in name):
       name = introduction["商品名称"]
     tags = introduction.get("性能", "无")
     rgb = introduction.get("灯效", '无')
@@ -232,7 +241,7 @@ class JDVideoCardSpider:
     # exit(0)
 
     # 点击进入 规格与包装 页面
-    time.sleep(self.delay_time * 2)
+    time.sleep(self.delay_time)
     self.driver.find_element_by_xpath(
         "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[2]").click()
     time.sleep(self.delay_time * 2)
@@ -280,12 +289,19 @@ class JDVideoCardSpider:
     changed = 0
     comment_num = "100"
     praise_rate = "90%"
-    while cnt < 5:
+    while cnt < 3:
       try:
         # 转到 商品评价 页面
-        self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-        time.sleep(2*self.delay_time)
+        label = self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]"
+        ).text
+        if (label[:4] == "商品评价"):
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]").click()
+        else:
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+        time.sleep(self.delay_time)
 
         # self.driver.execute_script(
         #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
@@ -305,7 +321,7 @@ class JDVideoCardSpider:
         break
       except:
         self.driver.refresh()
-        time.sleep(3*self.delay_time)
+        time.sleep((cnt+1)*self.delay_time)
         cnt += 1
 
     if (not changed):

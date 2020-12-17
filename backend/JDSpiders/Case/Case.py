@@ -5,7 +5,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-07 13:35:17
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 22:42:40
+LastEditTime: 2020-12-15 12:16:43
 '''
 
 import json
@@ -33,8 +33,8 @@ class JDCaseSpider:
   def __init__(self):
     self.delay_time = 0.5  # 休眠时间
     self.chrome_options = Options()
-    prefs = {"profile.managed_default_content_settings.images": 2}
-    self.chrome_options.add_experimental_option("prefs", prefs)
+    # prefs = {"profile.managed_default_content_settings.images": 2}
+    # self.chrome_options.add_experimental_option("prefs", prefs)
     self.driver = webdriver.Chrome(options=self.chrome_options)
     db = pymysql.connect(
         host=MYSQL_HOSTS,
@@ -58,9 +58,9 @@ class JDCaseSpider:
   def caseSpider(self):
     start_urls = []
     url_root = "https://list.jd.com/list.html?cat=670%2C677%2C687&psort=3&psort=3&page="
-    page_num = 35
+    page_num = 32
     delta_page = 2
-    for i in range(1, page_num + 1):
+    for i in range(4, page_num + 4):
       url = url_root + str((i - 1) * delta_page + 1)
       start_urls.append(url)
     # print(start_urls)
@@ -274,12 +274,19 @@ class JDCaseSpider:
     while cnt < 5:
       try:
         # 转到 商品评价 页面
-        self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-        time.sleep(2*self.delay_time)
+        label = self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]"
+        ).text
+        if (label[:4] == "商品评价"):
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]").click()
+        else:
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
 
         # self.driver.execute_script(
         #     "window.scrollTo(0, 5 * document.body.scrollHeight / 6);")  # 下拉页面，从而显示隐藏界面
+        time.sleep(self.delay_time*2)
 
       # 勾选 只看当前商品评价 选项
         self.driver.find_element_by_xpath(

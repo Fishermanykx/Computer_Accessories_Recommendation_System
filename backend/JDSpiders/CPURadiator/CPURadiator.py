@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-08 20:56:06
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-11 22:13:04
+LastEditTime: 2020-12-11 23:59:49
 '''
 import json
 from pprint import pprint
@@ -179,8 +179,7 @@ class JDCPURadiatorSpider:
         self.driver.get(link)
         # 点击商品，获取详细信息
         try:
-          name, comment_num, praise_rate, brand, tags, form_factor, platform, introduction, Ptable_params\
-              = self.getGoodsInfo()
+          name, comment_num, praise_rate, brand, introduction, Ptable_params = self.getGoodsInfo()
         except:
           print("Error in function getGoodsInfo")
           print(link)
@@ -287,9 +286,16 @@ class JDCPURadiatorSpider:
     while cnt < 5:
       try:
         # 转到 商品评价 页面
-        self.driver.find_element_by_xpath(
-            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
-        time.sleep(self.delay_time)
+        label = self.driver.find_element_by_xpath(
+            "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]"
+        ).text
+        if (label[:4] == "商品评价"):
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[4]").click()
+        else:
+          self.driver.find_element_by_xpath(
+              "/html/body/div[*]/div[2]/div[1]/div[1]/ul/li[5]").click()
+        time.sleep(self.delay_time*3)
 
       # 勾选 只看当前商品评价 选项
         self.driver.find_element_by_xpath(

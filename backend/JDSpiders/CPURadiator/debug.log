@@ -26,3 +26,21 @@
 [1208/224622.916:ERROR:exception_snapshot_win.cc(99)] thread ID 20056 not found in process
 [1208/224622.940:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
 [1208/224622.940:ERROR:exception_snapshot_win.cc(99)] thread ID 17672 not found in process
+[1211/230917.233:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1211/230917.234:ERROR:exception_snapshot_win.cc(99)] thread ID 18276 not found in process
+[1211/230917.241:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1211/230917.242:ERROR:exception_snapshot_win.cc(99)] thread ID 3068 not found in process
+[1211/231218.661:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1211/231218.662:ERROR:exception_snapshot_win.cc(99)] thread ID 21816 not found in process
+[1211/231218.673:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1211/231218.673:ERROR:exception_snapshot_win.cc(99)] thread ID 20236 not found in process
+[1211/232741.656:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
+[1211/235622.726:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1211/235622.726:ERROR:exception_snapshot_win.cc(99)] thread ID 24636 not found in process
+[1211/235622.735:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1211/235622.735:ERROR:exception_snapshot_win.cc(99)] thread ID 24372 not found in process
+[1215/200353.014:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系统找不到指定的路径。 (0x3)
+[1215/201515.502:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1215/201515.502:ERROR:exception_snapshot_win.cc(99)] thread ID 16044 not found in process
+[1215/201515.512:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[1215/201515.512:ERROR:exception_snapshot_win.cc(99)] thread ID 6996 not found in process
