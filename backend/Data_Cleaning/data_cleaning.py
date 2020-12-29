@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-21 12:08:22
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-28 12:07:42
+LastEditTime: 2020-12-28 13:47:37
 '''
 import re
 import pymysql
@@ -281,6 +281,9 @@ class DataCleaning:
         record['comment_num'], record['praise_rate'])
     # 清洗 brand
     record['brand'] = self.washBrand(record['brand'])
+
+    # if record['brand'] == '磐镭':
+    # record['card_length'] /= 10
 
     return record
 
@@ -1049,6 +1052,6 @@ class DataCleaning:
 
 if __name__ == "__main__":
   # washer = DataCleaning('power_supply')
-  washer = DataCleaning('cpu_radiator')
+  washer = DataCleaning('video_card')
   # washer = DataCleaning('motherboard')
   washer.main()

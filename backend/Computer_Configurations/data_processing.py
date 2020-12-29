@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-16 22:27:37
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-17 02:23:28
+LastEditTime: 2020-12-17 08:45:17
 '''
 import codecs
 import pandas as pd
@@ -19,7 +19,7 @@ key_in_consideration = ['CPU', '主板', '内存',
 categories = [
     '经济实惠型', '家用学习型', '网吧游戏型', '商务办公型', '疯狂游戏型', '图形音像型', '豪华发烧型'
 ]
-writer = pd.ExcelWriter('result.xlsx')
+writer = pd.ExcelWriter('test.xlsx')
 
 for i in range(1, 8):
   data = res[url_indexs[i-1]]
