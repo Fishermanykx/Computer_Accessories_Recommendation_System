@@ -4,7 +4,7 @@ Description: 电脑配置单爬虫，爬取站点如下
 Author: Fishermanykx
 Date: 2020-12-16 10:41:16
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-17 01:17:04
+LastEditTime: 2020-12-17 08:45:52
 '''
 import codecs
 import sys
@@ -25,8 +25,8 @@ from selenium.common.exceptions import ElementClickInterceptedException
 
 from pprint import pprint
 
-f = codecs.open("out.txt", "w+", 'utf-8')
-sys.stdout = f
+# f = codecs.open("out.txt", "w+", 'utf-8')
+# sys.stdout = f
 
 
 class GetConfigLists:
@@ -55,7 +55,7 @@ class GetConfigLists:
 
   def testFunc(self):
     url = 'http://zj.zol.com.cn/diy/detail/9680358.html'
-    page_resp = requests.get(url, timeout=10)
+    page_resp = requests.get(url, timeout=30)
     page_resp.raise_for_status()
     page_resp.encoding = page_resp.apparent_encoding
     page = page_resp.text
@@ -102,7 +102,7 @@ class GetConfigLists:
     '''
     page_num = 1
     sub_page_urls = []  # 每个页面的子页面的入口 url
-    total_page_num = 10
+    total_page_num = 50
     for page_num in range(1, total_page_num + 1):
       cur_url = 'http://zj.zol.com.cn/list_c' + str(conf_type) + '_l1_1_' + str(
           page_num) + '.html'
@@ -123,8 +123,8 @@ class GetConfigLists:
       for cfg in cfg_lis:
         # 解析价格
         price = int(cfg.find('font').text[:-1])
-        if price > 100000:
-          # print("You are thinking peach")
+        if price > 200000:
+          print("You are thinking peach")
           continue
         # 解析子页面链接
         sub_page_link = cfg.find('a', class_='link')['href']
@@ -141,7 +141,7 @@ class GetConfigLists:
     return {*}
     '''
     for url in urls:
-      page_resp = requests.get(url, timeout=10)
+      page_resp = requests.get(url, timeout=30)
       page_resp.raise_for_status()
       page_resp.encoding = page_resp.apparent_encoding
       page = page_resp.text
@@ -196,7 +196,11 @@ class GetConfigLists:
       num = self.url_indexs[cat-1]
       urls = self.parseSingleTypeURLS(num)
       self.getSingleTypeInfo(num, urls)
-    pprint(self.configs)
+      print("Successfully getting category: " + self.categories[cat-1])
+      with codecs.open('tmp.txt', 'w', 'utf-8') as tmp_f:
+        tmp_f.write(str(self.configs))
+    with codecs.open('result.txt', 'w', 'utf-8') as f:
+      f.write(str(self.configs))
 
 
 if __name__ == "__main__":
