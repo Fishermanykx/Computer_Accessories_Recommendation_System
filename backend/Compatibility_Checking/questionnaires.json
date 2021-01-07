@@ -1,0 +1,42 @@
+[
+// 正确用例
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100003809901.html", "l3": "https://item.jd.com/100009115115.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/100011674030.html", "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100002404996.html"
+}, 
+// 错误用例1：商品链接错误
+{
+  "l1": "https://item.jd.com/100006391078111.html", "l2": "https://item.jd.com/100003809901.html", "l3": "https://item.jd.com/100009115115.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/100011674030.html", "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100002404996.html"
+},
+// 错误用例2：CPU和主板不匹配
+{
+  "l1": "https://item.jd.com/100008667315.html", "l2": "https://item.jd.com/100003809901.html", "l3": "https://item.jd.com/100009115115.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/100011674030.html", "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100002404996.html"
+},
+// 错误用例3：内存条和主板不匹配
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100003809901.html", "l3": "https://item.jd.com/100009115115.html", "l4": "https://item.jd.com/664483.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/100011674030.html", "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100002404996.html"
+},
+// 错误用例4：显卡太长
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100013875220.html",  "l3": "https://item.jd.com/100016672370.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/3762171.html",  "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100000805272.html"
+},
+// 错误用例5：主板太大
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100003809901.html", "l3": "https://item.jd.com/100009115115.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/3762171.html", "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100000805272.html"
+}, 
+// 错误用例6：电源太大
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100007523963.html", "l3": "https://item.jd.com/4211287.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/3762171.html", "l8": "https://item.jd.com/6828141.html", "l9": "https://item.jd.com/100007000176.html"
+}, 
+// 错误用例7：水冷太大
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100007523963.html", "l3": "https://item.jd.com/4211287.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/100011674030.html", "l8": "https://item.jd.com/100009390674.html", "l9": "https://item.jd.com/100007000176.html"
+}, 
+// 错误用例7：风冷太高
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/100007523963.html", "l3": "https://item.jd.com/4211287.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/598827.html", "l8": "https://item.jd.com/100009390674.html", "l9": "https://item.jd.com/100007000176.html"
+}, 
+// 错误用例8：主板上没有 M2 接口
+{
+  "l1": "https://item.jd.com/100006391078.html", "l2": "https://item.jd.com/69193529317.html", "l3": "https://item.jd.com/4211287.html", "l4": "https://item.jd.com/100005116786.html", "l5": "https://item.jd.com/100005926991.html", "l6": "https://item.jd.com/675971.html", "l7": "https://item.jd.com/3762171.html", "l8": "https://item.jd.com/100009390674.html", "l9": "https://item.jd.com/100007000176.html"
+}
+]
