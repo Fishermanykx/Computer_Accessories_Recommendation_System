@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-29 08:21:41
 LastEditors: Fishermanykx
-LastEditTime: 2021-01-07 19:54:47
+LastEditTime: 2021-01-13 17:05:44
 '''
 
 import re
@@ -543,7 +543,7 @@ class CPUSpider(JDSpider):
     cursor.close()
     db.close()
 
-  def handleSingleCPURecrod(self, record):
+  def handleSingleCPURecord(self, record):
     record['price'] = int(record['price'])
     introd = eval(record['introduction'])
     p_table = eval(record['Ptable_params'])
@@ -612,6 +612,8 @@ class CPUSpider(JDSpider):
     # print(data_len)
     new_data = []
     cnt = 1
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       # 判定是否为板-U套装
@@ -623,8 +625,9 @@ class CPUSpider(JDSpider):
         if '套装' in record['name']:
           continue
       # 清洗数据
-      new_data.append(self.handleSingleCPURecrod(record))
-      new_data[i]['id'] = cnt
+      new_data.append(self.handleSingleCPURecord(record))
+      new_data[index]['id'] = cnt
+      index += 1
       cnt += 1
 
     # 清空表
@@ -676,9 +679,9 @@ class MotherboardSpider(JDSpider):
     cursor = db.cursor()
 
     sql_insert = "INSERT INTO motherboard (id, name, comment_num, praise_rate, shop_name, price, link,"\
-        "brand, tags, form_factor, platform, cpu_socket, m2_num, slot_num, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
+        "brand, tags, form_factor, platform, cpu_socket, m2_num, slot_num, ddr_gen, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
         " %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, %(form_factor)s, "\
-        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"\
+        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(ddr_gen)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"\
         "ON DUPLICATE KEY UPDATE id=VALUES(id), name=VALUES(name), comment_num=VALUES(comment_num), praise_rate=VALUES(praise_rate), "\
         "price=VALUES(price), introduction=VALUES(introduction), Ptable_params=VALUES(Ptable_params), title_name=VALUES(title_name)"
     value = {
@@ -696,6 +699,7 @@ class MotherboardSpider(JDSpider):
         "cpu_socket": "",
         "m2_num": 0,
         "slot_num": 0,
+        "ddr_gen": "",
         "introduction": introduction,
         "Ptable_params": Ptable_params,
         "title_name": title_name
@@ -764,6 +768,10 @@ class MotherboardSpider(JDSpider):
       slot_num = 0
     record['slot_num'] = slot_num
 
+    # 支持的内存代数
+    ddr_gen = p_table['内存'].get('DDR代数')
+    record['ddr_gen'] = ddr_gen
+
     return record
 
   def cleanMotherboard(self):
@@ -785,6 +793,8 @@ class MotherboardSpider(JDSpider):
     # print(data_len)
     new_data = []
     cnt = 1
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       # 判定是否为板-U套装
@@ -795,7 +805,8 @@ class MotherboardSpider(JDSpider):
         continue
       # 清洗数据
       new_data.append(self.handleSingleMotherboardRecord(record))
-      new_data[i]['id'] = cnt
+      new_data[index]['id'] = cnt
+      index += 1
       cnt += 1
 
     # 清空表
@@ -803,9 +814,9 @@ class MotherboardSpider(JDSpider):
 
     # 重新写入
     sql_insert = "INSERT INTO motherboard (id, name, comment_num, praise_rate, shop_name, price, link, brand, tags, "\
-        "form_factor, platform, cpu_socket, m2_num, slot_num, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
+        "form_factor, platform, cpu_socket, m2_num, slot_num, ddr_gen, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
         " %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, %(form_factor)s, "\
-        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
+        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(ddr_gen)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
     cursor.executemany(sql_insert, new_data)
 
     connection.commit()
@@ -948,13 +959,19 @@ class GraphicsCardSpider(JDSpider):
     data_len = len(data)
     # print(data_len)
     cnt = 1
+    new_data = []
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       record = data[i]
+      if '支架' in record['name']:
+        continue
       # 清洗数据
-      data[i] = self.handleSingleGraphicsCard(record)
-      data[i]['id'] = cnt
+      new_data.append(self.handleSingleGraphicsCard(record))
+      new_data[index]['id'] = cnt
       cnt += 1
+      index += 1
 
     # 清空表
     cursor.execute("truncate table " + self.accessory_type)
@@ -964,7 +981,7 @@ class GraphicsCardSpider(JDSpider):
         "brand, tags, card_length, rgb, card_type, generation, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s, "\
         "%(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, "\
         "%(card_length)s, %(rgb)s, %(card_type)s, %(generation)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
-    cursor.executemany(sql_insert, data)
+    cursor.executemany(sql_insert, new_data)
 
     connection.commit()
 
@@ -973,10 +990,10 @@ class GraphicsCardSpider(JDSpider):
     # 爬取数据
     page_num = 30
     start_page = 1
-    self.productSpider(graphics_card_link, page_num, start_page)
+    # self.productSpider(graphics_card_link, page_num, start_page)
     # 清洗数据
     self.cleanGraphicsCard()
-    print("Successfully get Graphics data!")
+    print("Successfully get Graphics Card data!")
 
 
 class MemorySpider(JDSpider):
@@ -1054,6 +1071,7 @@ class MemorySpider(JDSpider):
     record['price'] = int(record['price'])
     introd = eval(record['introduction'])
     p_table = eval(record['Ptable_params'])
+    record['brand'] = self.cleanBrand(record['brand'])
 
     record['frequency'] = introd.get("频率", '2400/2666 (原链接没写)')
     record['memory_num'] = introd.get("内存数量", "1条单条 (原链接没写)")
@@ -1067,6 +1085,8 @@ class MemorySpider(JDSpider):
     else:
       pat = r'\d+G'
       name = record['title_name']
+      if not name:
+        name = record['name']
       res = re.search(pat, name)
       if res:
         res = res.group()
@@ -1105,18 +1125,23 @@ class MemorySpider(JDSpider):
     # print(data_len)
     new_data = []
     cnt = 1
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       record = data[i]
       name = record['title_name']
       if not name:
         name = record['name']
-      if '套装' in name:
+
+      if '内存发光套件' in name:
         continue
+
       # 清洗数据
       new_data.append(self.handleSingleMemory(record))
-      new_data[i]['id'] = cnt
+      new_data[index]['id'] = cnt
       cnt += 1
+      index += 1
 
     # 清空表
     cursor.execute("truncate table " + self.accessory_type)
@@ -1136,9 +1161,9 @@ class MemorySpider(JDSpider):
   def main(self):
     memory_link = "https://list.jd.com/list.html?cat=670%2C677%2C680&psort=3&ev=210_1558%5E&psort=3&page="
     # 爬取数据
-    page_num = 20
+    page_num = 40
     start_page = 1
-    self.productSpider(memory_link, page_num, start_page)
+    # self.productSpider(memory_link, page_num, start_page)
     # 清洗数据
     self.cleanMemory()
     print("Successfully get Memory data!")
@@ -1286,17 +1311,26 @@ class CPURadiatorSpider(JDSpider):
     # print(data_len)
     new_data = []
     cnt = 1
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       record = data[i]
       name = record['title_name']
       if not name:
         name = record['name']
-      if '套装' in name:
+      if ('套装' in name) or ('机箱风扇' in name) or ('套装' in record['name']):
+        continue
+      if ('+' in record['name']):
+        continue
+      introd = eval(record['introduction'])
+      cate = introd.get('产品类型', "无")
+      if (cate == '分体式水冷配件'):
         continue
       # 清洗数据
       new_data.append(self.handleSingleCPURadiator(record))
-      new_data[i]['id'] = cnt
+      new_data[index]['id'] = cnt
+      index += 1
       cnt += 1
 
     # 清空表
@@ -1316,7 +1350,7 @@ class CPURadiatorSpider(JDSpider):
     # 爬取数据
     page_num = 27
     start_page = 1
-    self.productSpider(radiator_link, page_num, start_page)
+    # self.productSpider(radiator_link, page_num, start_page)
     # 清洗数据
     self.cleanCPURadiator()
     print("Successfully get CPU Radiator data!")
@@ -1383,7 +1417,7 @@ class SSDSpider(JDSpider):
     cursor.close()
     db.close()
 
-  def handleSingleSSDRecrod(self, record):
+  def handleSingleSSDRecord(self, record):
     record['price'] = int(record['price'])
     introd = eval(record['introduction'])
     p_table = eval(record['Ptable_params'])
@@ -1456,13 +1490,21 @@ class SSDSpider(JDSpider):
     data_len = len(data)
     # print(data_len)
     cnt = 1
+    new_data = []
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       record = data[i]
+      if ('支架' in record['name']) or ('套装' in record['name']) or ('固态硬盘散热器' in record['name']):
+        continue
+      if 'HDMI' in record['interface']:
+        continue
       # 清洗数据
-      data[i] = self.handleSingleSSDRecrod(record)
-      data[i]['id'] = cnt
+      new_data.append(self.handleSingleSSDRecord(record))
+      new_data[index]['id'] = cnt
       cnt += 1
+      index += 1
 
     # 清空表
     cursor.execute("truncate table " + self.accessory_type)
@@ -1472,7 +1514,7 @@ class SSDSpider(JDSpider):
         "brand, interface, total_capacity, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s, "\
         "%(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, "\
         "%(interface)s, %(total_capacity)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
-    cursor.executemany(sql_insert, data)
+    cursor.executemany(sql_insert, new_data)
 
     connection.commit()
 
@@ -1480,7 +1522,7 @@ class SSDSpider(JDSpider):
     ssd_link = "https://list.jd.com/list.html?cat=670%2C677%2C11303&psort=3&psort=3&page="
     page_num = 36  # 一共爬了36页
     start_page = 1
-    self.productSpider(ssd_link, page_num, start_page)
+    # self.productSpider(ssd_link, page_num, start_page)
 
     self.cleanSSD()
     print("Successfully get SSD data!")
@@ -1548,7 +1590,7 @@ class HDDSpider(JDSpider):
     cursor.close()
     db.close()
 
-  def handleSingleHDDRecrod(self, record):
+  def handleSingleHDDRecord(self, record):
     record['price'] = int(record['price'])
     introd = eval(record['introduction'])
     p_table = eval(record['Ptable_params'])
@@ -1625,12 +1667,20 @@ class HDDSpider(JDSpider):
     data_len = len(data)
     # print(data_len)
     cnt = 1
+    new_data = []
+    index = 0
+
     for i in range(data_len):
       # 逐条数据处理
       record = data[i]
+      if ('套装' in record['title_name']) or ('解决方案' in record['title_name']) \
+              or ('解决方案' in record['name']) or ('笔记本' in record['title_name']) or ('套装' in record['name']) \
+              or ('移动硬盘' in record['title_name']) or ('固态硬盘' in record['title_name']):
+        continue
       # 清洗数据
-      data[i] = self.handleSingleHDDRecrod(record)
-      data[i]['id'] = cnt
+      new_data.append(self.handleSingleHDDRecord(record))
+      new_data[index]['id'] = cnt
+      index += 1
       cnt += 1
 
     # 清空表
@@ -1641,7 +1691,7 @@ class HDDSpider(JDSpider):
         "brand, size, rotating_speed, total_capacity, introduction, Ptable_params, title_name) VALUES (%(id)s, "\
         "%(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(size)s, "\
         "%(rotating_speed)s, %(total_capacity)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
-    cursor.executemany(sql_insert, data)
+    cursor.executemany(sql_insert, new_data)
 
     connection.commit()
 
@@ -1649,7 +1699,7 @@ class HDDSpider(JDSpider):
     hdd_link = "https://list.jd.com/list.html?cat=670%2C677%2C683&psort=3&psort=3&page="
     page_num = 11
     start_page = 1
-    self.productSpider(hdd_link, page_num, start_page)
+    # self.productSpider(hdd_link, page_num, start_page)
 
     self.cleanHDD()
     print("Successfully get HDD data!")
@@ -1719,7 +1769,7 @@ class PowerSupplySpider(JDSpider):
     cursor.close()
     db.close()
 
-  def handleSinglePowerRecrod(self, record):
+  def handleSinglePowerRecord(self, record):
     record['price'] = int(record['price'])
     introd = eval(record['introduction'])
     p_table = eval(record['Ptable_params'])
@@ -1769,6 +1819,7 @@ class PowerSupplySpider(JDSpider):
     data_len = len(data)
     # print(data_len)
     cnt = 1
+    index = 0
     new_data = []
 
     for i in range(data_len):
@@ -1780,9 +1831,12 @@ class PowerSupplySpider(JDSpider):
       name = record['title_name']
       if '套装' in name:
         continue
+      if '接线类型' not in record['introduction']:
+        continue
       # 清洗数据
-      new_data.append(self.handleSinglePowerRecrod(record))
-      new_data[i]['id'] = cnt
+      new_data.append(self.handleSinglePowerRecord(record))
+      new_data[index]['id'] = cnt
+      index += 1
       cnt += 1
 
     # 清空表
@@ -1799,10 +1853,9 @@ class PowerSupplySpider(JDSpider):
 
   def main(self):
     power_supply_link = "https://list.jd.com/list.html?cat=670%2C677%2C691&psort=3&psort=3&page="
-    page_num = 24
-    page_num = 1
+    page_num = 25  # 抓25页
     start_page = 1
-    self.productSpider(power_supply_link, page_num, start_page)
+    # self.productSpider(power_supply_link, page_num, start_page)
 
     self.cleanPowerSupply()
     print("Successfully get Power Supply data!")
@@ -1882,7 +1935,7 @@ class CaseSpider(JDSpider):
     cursor.close()
     db.close()
 
-  def handleSingleCaseRecrod(self, record):
+  def handleSingleCaseRecord(self, record):
     record['price'] = int(record['price'])
     introd = eval(record['introduction'])
     p_table = eval(record['Ptable_params'])
@@ -1951,6 +2004,7 @@ class CaseSpider(JDSpider):
     # print(data_len)
     cnt = 1
     new_data = []
+    index = 0
 
     for i in range(data_len):
       # 逐条数据处理
@@ -1963,8 +2017,9 @@ class CaseSpider(JDSpider):
         continue
       # 清洗数据
       if max_h and max_l:
-        new_data.append(self.handleSingleCase(record))
-        new_data[i]['id'] = cnt
+        new_data.append(self.handleSingleCaseRecord(record))
+        new_data[index]['id'] = cnt
+        index += 1
         cnt += 1
 
     # 清空表
@@ -1977,12 +2032,6 @@ class CaseSpider(JDSpider):
         " VALUES (%(id)s, %(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, "\
         "%(max_form_factor)s, %(max_card_len)s, %(max_radiator_height)s, %(supported_radiator)s, "\
         "%(has_transparent_side_panel)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
-    # sql_insert = "INSERT INTO computer_case (id, name, comment_num, praise_rate, shop_name, price, "\
-    #     "link, brand, max_form_factor, max_card_len, max_radiator_height, supported_radiator, "\
-    #     "has_transparent_side_panel, is_water_cooling, introduction, Ptable_params, title_name)"\
-    #     " VALUES (%(id)s, %(name)s, %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, "\
-    #     "%(max_form_factor)s, %(max_card_len)s, %(max_radiator_height)s, %(supported_radiator)s, "\
-    #     "%(has_transparent_side_panel)s, %(is_water_cooling)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
     cursor.executemany(sql_insert, new_data)
 
     connection.commit()
@@ -1990,7 +2039,6 @@ class CaseSpider(JDSpider):
   def main(self):
     case_link = "https://list.jd.com/list.html?cat=670%2C677%2C687&psort=3&psort=3&page="
     page_num = 36
-    page_num = 1
     start_page = 1
     self.productSpider(case_link, page_num, start_page)
 
@@ -1999,7 +2047,8 @@ class CaseSpider(JDSpider):
 
 
 if __name__ == "__main__":
-  accessory_type = 'computer_case'
+  accessory_type = 'ssd'
+  # accessory_type = 'motherboard'
   if accessory_type == 'cpu':
     cpu_spider = CPUSpider('cpu')
     cpu_spider.main()

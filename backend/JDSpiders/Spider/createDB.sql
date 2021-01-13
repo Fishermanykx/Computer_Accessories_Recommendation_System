@@ -212,3 +212,39 @@ CREATE TABLE `board_u_suit` (
   PRIMARY KEY (`link`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
 truncate board_u_suit; 
+
+DROP TABLE IF EXISTS `trendings`;
+CREATE TABLE `trendings` (
+  `id` varchar(255) NOT NULL,
+  `frequency` int(11) DEFAULT 0,
+  `cpu` varchar(255) NOT NULL,
+  `cpu_price` int(11) DEFAULT 0,
+  `cpu_link` varchar(255) NOT NULL,
+  `motherboard` varchar(255) NOT NULL,
+  `motherboard_price` int(11) DEFAULT 0,
+  `motherboard_link` varchar(255) NOT NULL,
+  `GPU` varchar(255) NOT NULL,
+  `GPU_price` int(11) DEFAULT 0,
+  `GPU_link` varchar(255) NOT NULL,
+  `memory` varchar(255) NOT NULL,
+  `memory_price` int(11) DEFAULT 0,
+  `memory_link` varchar(255) NOT NULL,
+  `CPURadiator` varchar(255) NOT NULL,
+  `CPURadiator_price` int(11) DEFAULT 0,
+  `CPURadiator_link` varchar(255) NOT NULL,
+  `ssd` varchar(255) NOT NULL,
+  `ssd_price` int(11) DEFAULT 0,
+  `ssd_link` varchar(255) NOT NULL,
+  `hdd` varchar(255) NOT NULL,
+  `hdd_price` int(11) DEFAULT 0,
+  `hdd_link` varchar(255) NOT NULL,
+  `powerSupply` varchar(255) NOT NULL,
+  `powerSupply_price` int(11) DEFAULT 0,
+  `powerSupply_link` varchar(255) NOT NULL,
+  `case` varchar(255) NOT NULL,
+  `case_price` int(11) DEFAULT 0,
+  `case_link` varchar(255) NOT NULL,
+  `totalPrice` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+truncate trendings;
