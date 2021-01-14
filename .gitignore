@@ -1,0 +1,5 @@
+backend/Recommendation
+*.log
+.vscode/
+frontend/
+backend/temp

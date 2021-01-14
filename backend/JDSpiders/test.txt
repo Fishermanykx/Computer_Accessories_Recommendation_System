@@ -1,0 +1,7 @@
+/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[1]
+/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[1]
+/html/body/div[10]/div[2]/div[1]/div[1]/ul/li[1]
+
+/html/body/div[6]/div/div[2]/div[1]
+/html/body/div[6]/div/div[2]/div[1]
+/html/body/div[6]/div/div[2]/div[1]/text()
