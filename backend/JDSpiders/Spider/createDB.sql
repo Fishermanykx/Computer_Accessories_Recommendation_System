@@ -23,7 +23,7 @@ CREATE TABLE `cpu` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate cpu; 
 
 DROP TABLE IF EXISTS `motherboard`;
@@ -42,11 +42,13 @@ CREATE TABLE `motherboard` (
   `cpu_socket` varchar(255) DEFAULT NULL, 
   `m2_num` INT DEFAULT 0, 
   `slot_num` INT DEFAULT 0, 
+  `ddr_gen` varchar(255) DEFAULT NULL,
+  `max_memory` INT DEFAULT 0,
   `introduction` JSON,
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate motherboard; 
 
 DROP TABLE IF EXISTS `graphics_card`;
@@ -68,7 +70,7 @@ CREATE TABLE `graphics_card` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate graphics_card; 
 
 DROP TABLE IF EXISTS `memory`;
@@ -90,7 +92,7 @@ CREATE TABLE `memory` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate memory; 
 
 DROP TABLE IF EXISTS `cpu_radiator`;
@@ -111,7 +113,7 @@ CREATE TABLE `cpu_radiator` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate cpu_radiator; 
 
 DROP TABLE IF EXISTS `ssd`;
@@ -130,7 +132,7 @@ CREATE TABLE `ssd` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate ssd; 
 
 DROP TABLE IF EXISTS `hdd`;
@@ -150,7 +152,7 @@ CREATE TABLE `hdd` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate hdd; 
 
 DROP TABLE IF EXISTS `power_supply`;
@@ -172,7 +174,7 @@ CREATE TABLE `power_supply` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate power_supply; 
 
 DROP TABLE IF EXISTS `computer_case`;
@@ -194,7 +196,7 @@ CREATE TABLE `computer_case` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate computer_case; 
 
 DROP TABLE IF EXISTS `board_u_suit`;
@@ -210,7 +212,7 @@ CREATE TABLE `board_u_suit` (
   `Ptable_params` JSON,
   `title_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`link`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate board_u_suit; 
 
 DROP TABLE IF EXISTS `trendings`;
@@ -246,5 +248,5 @@ CREATE TABLE `trendings` (
   `case_link` varchar(255) NOT NULL,
   `totalPrice` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4, COLLATE=utf8mb4_general_ci;
 truncate trendings;

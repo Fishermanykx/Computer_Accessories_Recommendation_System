@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-29 08:21:41
 LastEditors: Fishermanykx
-LastEditTime: 2021-01-13 17:05:44
+LastEditTime: 2021-01-14 21:12:52
 '''
 
 import re
@@ -679,9 +679,9 @@ class MotherboardSpider(JDSpider):
     cursor = db.cursor()
 
     sql_insert = "INSERT INTO motherboard (id, name, comment_num, praise_rate, shop_name, price, link,"\
-        "brand, tags, form_factor, platform, cpu_socket, m2_num, slot_num, ddr_gen, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
+        "brand, tags, form_factor, platform, cpu_socket, m2_num, slot_num, ddr_gen, max_memory, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
         " %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, %(form_factor)s, "\
-        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(ddr_gen)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"\
+        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(ddr_gen)s, %(max_memory)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"\
         "ON DUPLICATE KEY UPDATE id=VALUES(id), name=VALUES(name), comment_num=VALUES(comment_num), praise_rate=VALUES(praise_rate), "\
         "price=VALUES(price), introduction=VALUES(introduction), Ptable_params=VALUES(Ptable_params), title_name=VALUES(title_name)"
     value = {
@@ -700,6 +700,7 @@ class MotherboardSpider(JDSpider):
         "m2_num": 0,
         "slot_num": 0,
         "ddr_gen": "",
+        "max_memory": 0,
         "introduction": introduction,
         "Ptable_params": Ptable_params,
         "title_name": title_name
@@ -772,6 +773,16 @@ class MotherboardSpider(JDSpider):
     ddr_gen = p_table['内存'].get('DDR代数')
     record['ddr_gen'] = ddr_gen
 
+    # 支持的最大内存容量
+    max_mem = p_table['内存'].get('最大内存容量', 0)
+    pat = r'\d+'
+    res = re.search(pat, max_mem)
+    if res:
+      res = res.group()
+    else:
+      res = '64'
+    record['max_memory'] = int(res)
+
     return record
 
   def cleanMotherboard(self):
@@ -814,9 +825,9 @@ class MotherboardSpider(JDSpider):
 
     # 重新写入
     sql_insert = "INSERT INTO motherboard (id, name, comment_num, praise_rate, shop_name, price, link, brand, tags, "\
-        "form_factor, platform, cpu_socket, m2_num, slot_num, ddr_gen, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
+        "form_factor, platform, cpu_socket, m2_num, slot_num, ddr_gen, max_memory, introduction, Ptable_params, title_name) VALUES (%(id)s, %(name)s,"\
         " %(comment_num)s, %(praise_rate)s, %(shop_name)s, %(price)s, %(link)s, %(brand)s, %(tags)s, %(form_factor)s, "\
-        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(ddr_gen)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
+        "%(platform)s, %(cpu_socket)s, %(m2_num)s, %(slot_num)s, %(ddr_gen)s, %(max_memory)s, %(introduction)s, %(Ptable_params)s, %(title_name)s)"
     cursor.executemany(sql_insert, new_data)
 
     connection.commit()
@@ -1074,7 +1085,7 @@ class MemorySpider(JDSpider):
     record['brand'] = self.cleanBrand(record['brand'])
 
     record['frequency'] = introd.get("频率", '2400/2666 (原链接没写)')
-    record['memory_num'] = introd.get("内存数量", "1条单条 (原链接没写)")
+    record['memory_num'] = introd.get("内存数量", "1条单条")
     record['appearance'] = introd.get("外观特征", "没有写")
     record['ddr_gen'] = introd.get("DDR代数", "没有写")
 
@@ -1100,6 +1111,11 @@ class MemorySpider(JDSpider):
         exit(1)
 
     record['total_capacity'] = capacity
+
+    if capacity == 256:
+      record['memory_num'] = "8条套条"
+    if record['memory_num'][0] == '4':
+      record['memory_num'] = "4条套条"
 
     return record
 
@@ -1135,6 +1151,8 @@ class MemorySpider(JDSpider):
         name = record['name']
 
       if '内存发光套件' in name:
+        continue
+      if ('CPU' in record['name']):
         continue
 
       # 清洗数据
@@ -2047,8 +2065,7 @@ class CaseSpider(JDSpider):
 
 
 if __name__ == "__main__":
-  accessory_type = 'ssd'
-  # accessory_type = 'motherboard'
+  accessory_type = 'all'
   if accessory_type == 'cpu':
     cpu_spider = CPUSpider('cpu')
     cpu_spider.main()
