@@ -3,7 +3,7 @@ Description:
 Author: Fishermanykx
 Date: 2020-12-21 12:08:22
 LastEditors: Fishermanykx
-LastEditTime: 2020-12-28 13:47:37
+LastEditTime: 2021-01-13 18:34:33
 '''
 import re
 import pymysql
@@ -509,7 +509,6 @@ class DataCleaning:
     return record
 
   def cleanCase(self):
-    # TODO: 侧透
     connection = pymysql.connect(
         host=MYSQL_HOSTS,
         port=MYSQL_PORT,
