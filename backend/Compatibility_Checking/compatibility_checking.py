@@ -5,7 +5,7 @@ Description:
 Author: Fishermanykx
 Date: 2021-01-07 21:31:08
 LastEditors: Fishermanykx
-LastEditTime: 2021-01-08 02:36:27
+LastEditTime: 2021-01-14 20:54:44
 '''
 import json
 import pymysql
@@ -90,6 +90,20 @@ class CompatibilityChecking:
     memory_ddr_gen = self.memory['ddr_gen']
     if MB_ddr_gen != memory_ddr_gen:
       error = "主板支持内存的代数与所选内存不匹配"
+      errorList.append(error)
+
+    # 检测内存容量是否超过主板最大支持容量
+    memory_capacity = self.memory['total_capacity']
+    MB_max_mem = self.motherboard['max_memory']
+    if memory_capacity > MB_max_mem:
+      error = "所选内存容量大于主板支持的最大内存容量"
+      errorList.append(error)
+
+    # 检测内存数量是否超过主板插槽数
+    mem_num = int(self.memory['memory_num'][0])
+    MB_slot_num = self.motherboard['slot_num']
+    if mem_num > MB_slot_num:
+      error = "所选内存数量大于所选主板上的插槽数量"
       errorList.append(error)
 
     # 机箱相关
